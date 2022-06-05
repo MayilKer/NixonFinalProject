@@ -1,0 +1,40 @@
+.mobile_isVisible{
+    transform: translate(0) !important;
+}
+
+.mobile-expand-visible{
+    transform: translate(0) !important;
+    transition: all .3s ease-in-out !important;
+}
+
+
+.plus-minus-rotate-open{
+    span{
+        svg{
+            transform: rotate(180deg);
+            transition: transform .4s cubic-bezier(.42,0,.13,1.04);
+            path{
+                &:first-of-type{
+                    transition: all .4s cubic-bezier(.42,0,.13,1.04);
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+.plus-minus-rotate-closed{
+    span{
+        svg{
+            transform: rotate(-180deg);
+            transition: transform .4s cubic-bezier(.42,0,.13,1.04);
+            path{
+                &:first-of-type{
+                    transition: all .4s cubic-bezier(.42,0,.13,1.04);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+

@@ -7,5 +7,117 @@
 
 @import 'layout/header';
 
-@import 'media/response'
+@import 'media/response';
+
+#MainContent{
+    font-family: $font-family;
+    .main_content{
+        .hero-section{
+            display: block;
+            position: relative;
+            .hero-inner{
+                display: flex;
+                left: 0;
+                top: 0;
+                z-index: 2;
+                margin: 0 auto;
+                justify-content: left;
+                text-align: start;
+                align-items: center;
+                .hero-body{
+                    position: absolute;
+                    padding: 0 60px;
+                    h1{
+                        color: $color-white;
+                        b{
+                            strong{
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                    .hero-middle{
+                        p{
+                            color: $color-white;
+                        }
+                    }
+                    .hero-btn{
+                        a{
+                            border-radius: 3%;
+                            border-color: $color-black;
+                            color: $color-black;
+                            font-size: 16px;
+                            padding: 0.5625rem 1.25rem;
+                            &:hover{
+                                background-color: $color-black;
+                                color: $color-white;
+                            }
+                        }
+                    }
+                }
+                .hero-picture{
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    position: static;
+                    img{
+                        width: inherit;
+                        height: inherit;
+                    }
+                }
+            }
+        }
+        
+        .category-section{
+            padding: 34px 0 50px;
+            display: flex;
+            .category-box{
+                margin-right: 34px;
+                position: relative;
+                &:last-of-type{
+                    margin-right: 0;
+                }  
+                .category-title-img{
+                    min-width: 317px;
+                    width: 100%;
+                    object-fit: cover;      
+                    img{
+                        width: 100%;
+                    }
+                }
+                .category-title-content{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 22px;
+                    z-index: 2;
+                    text-align: center;
+                    h5{
+                        font-weight: 600;
+                        font-size: 22px;
+                    }
+                    .category-title-buttons{
+                        a{
+                            padding: 0;
+                            position: relative;
+                            &:after{
+                                background-color: black;
+                                content: "";
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 1px;
+                                transition: all 125ms;
+                            }
+                            &:hover::after{
+                                width: calc(100% + 10px);
+                                transform: translate(-5px);
+                            }
+                        }
+                    }
+                }
+           }
+        }
+    }
+}
 

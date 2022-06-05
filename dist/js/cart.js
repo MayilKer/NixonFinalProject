@@ -15,6 +15,7 @@ $(document).ready(function(){
     $('#mobile-menu-open-close').click(function(){
         $('.open-m, .close-m').toggleClass('d-none');
         $('.open-drower-parent').toggleClass('mobile_isVisible');
+        $('body').toggleClass('boy-overflow-hid');
     })
 
     $('.open_expand').click(function(){
@@ -31,4 +32,8 @@ $(document).ready(function(){
         $(this).toggleClass('plus-minus-rotate-closed')
         $(this).toggleClass('plus-minus-rotate-open');
     })
+});
+
+$(window).on("load", function(){
+    $(".laodPage").fadeOut("slow");
 });

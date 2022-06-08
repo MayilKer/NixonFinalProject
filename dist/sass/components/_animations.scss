@@ -38,3 +38,25 @@
     }
 }
 
+.my-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li{
+        button{
+            border: none;
+            width: 10px;
+            height: 10px;
+            color: transparent;
+            margin: 0 5px;
+            transition: all .3s;
+            background-color: #e2e2e2;
+            &:hover{
+                background-color: $color-black;
+            }
+            &:focus{
+                background-color: $color-black;
+            }
+        }
+    }
+}

@@ -1,13 +1,18 @@
-$('.autoplay').slick({
+$(document).ready(function(){
+  $('.autoplay').slick({
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     dots: true,
     dotsClass: "my-dots",
-    arrows: true,
     prevArrow: $('.prev'),
-    nextArrow: $('.next')
+    nextArrow: $('.next'),
+    infinite:false
   });
+})
+
+
+
 
   

@@ -66,6 +66,7 @@
     .mobile-navbar{
         display: block !important;
     }
+    
 }
 
 @media(max-width: 768px) {
@@ -79,5 +80,68 @@
                 margin-bottom: 0;
             }
         }
+    }
+    .offers-container{
+        flex-direction: column;
+        padding: 24px 20px !important;
+        .offers{
+            &:first-child{
+                margin-right: 0 !important;
+                margin-bottom: 20px !important;
+            }
+        }
+    }
+    .footer-top{
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px){
+    .footer-banner-bg{
+        height: 180px;
+    }
+}
+
+@media (min-width: 768px){
+    .footer-banner-title{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: left;
+        max-width: 25vw;
+    }
+    .footer{
+        padding: 50px 0 20px !important;
+    }
+    .footer-banner-content{
+        height: 180px !important;
+    }
+    .footer-menu_block{
+        flex: 0 0 25% !important;
+        margin-bottom: 80px !important;
+    }
+    .footer-bottom{
+        padding: 8px 0 !important;
+        margin: 0 !important;
+        .footer-social-list{
+            display: none;
+        }
+        .footer-copyright{
+            text-align: right !important;
+            margin-top: 0 !important;
+            a{
+                line-height: 1.4 !important;
+            }
+            span{
+                line-height: 1.4 !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 991.98px){
+    .slick-arrow{
+        display: none !important;
     }
 }

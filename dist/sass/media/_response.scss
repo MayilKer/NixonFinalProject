@@ -10,6 +10,18 @@
             max-width: 1440px;
         }
     }
+    .product-title-gallery-image{
+        img{
+            width: 250px !important;
+        }
+    }
+    #collection{
+        .container{
+            .search-result-header{
+                display: flex !important;
+            }
+        }
+    }
 }
 
 @media (max-width: $min-width-pre-mob){
@@ -60,13 +72,36 @@
             }
         }
     }
+    #collection{
+        .container{
+            .search-result-header{
+                margin: 0 !important;
+                max-width: 100%;
+            }
+        }
+    }
 }
 
 @media(max-width: 992px){
     .mobile-navbar{
         display: block !important;
     }
-    
+    .product-title-remeaning-colors{
+        display: none !important;
+    }
+
+    #products_main{
+        .hero-section{
+            .hero-inner{
+                .hero-body{
+                    h2{
+                        font-size: 28px !important;    
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 @media(max-width: 768px) {
@@ -93,6 +128,10 @@
     }
     .footer-top{
         display: none !important;
+    }
+    .product-title-swatches{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
 
@@ -138,10 +177,39 @@
             }
         }
     }
+    #products_main{
+        .hero-section{
+            .hero-inner{
+                padding: 80px 20px !important;
+            }
+        }
+    }
 }
 
-@media (max-width: 991.98px){
+@media(min-width: 576px){
+    #products_main{
+        .hero-section{
+            .hero-inner{
+                padding: 40px 20px !important;
+                justify-content: flex-start !important;
+                text-align: left !important;
+            }
+        }
+    }
+    .search-results_footer{
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 1024px){
     .slick-arrow{
         display: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-menu-bar-vis{
+        height: 90% !important;
+        width: 100% !important;
     }
 }

@@ -27,10 +27,10 @@
     span{
         svg{
             transform: rotate(-180deg);
-            transition: transform .4s cubic-bezier(.42,0,.13,1.04);
+            transition: transform .8s cubic-bezier(.42,0,.13,1.04);
             path{
                 &:first-of-type{
-                    transition: all .4s cubic-bezier(.42,0,.13,1.04);
+                    transition: all .8s cubic-bezier(.42,0,.13,1.04);
                     opacity: 1;
                 }
             }
@@ -78,4 +78,38 @@
     right: 0;
     z-index: 999;
     transition: all ease .5s;
+}
+
+.search-inpt-toggle{
+    display: block !important;
+}
+
+.serach-result_search-isvisible{
+    opacity: 1 !important;
+    display: block !important;
+}
+
+.search-result_angle-rotate{
+    svg{
+        transform: rotate(0) !important;
+    }
+    
+}
+
+.active{
+    &::after{
+        display: block !important;
+    }
+}
+
+.light-back{
+    border: 1px solid #f0f0f0;
+    i{
+        color: black !important;
+    }
+}
+
+.search-menu-bar-vis{
+    bottom: 0 !important;
+    right: 0 !important;
 }

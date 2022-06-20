@@ -109,7 +109,43 @@
     }
 }
 
+.product-border{
+    border: 1px solid #000 !important;
+}
+
 .search-menu-bar-vis{
     bottom: 0 !important;
     right: 0 !important;
+}
+
+.hide{
+    display: none !important;
+}
+
+.body-over-hid{
+    overflow: hidden;
+}
+
+.btn-links{
+    position: relative;
+    font-weight: 300;
+    color: $color-black !important;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $color-black;
+        transition: all 125ms;                               
+    }
+    &:hover::after{
+        width: calc(100% + 10px);
+        transform: translate(-5px);
+    }
 }

@@ -22,6 +22,19 @@
             }
         }
     }
+    .text-lg-left{
+        text-align: left !important;
+    }
+    .account-sidebar_content{
+        margin-left: 45px !important;
+    }
+    .product-code{
+        bottom: -16px !important;
+    }
+    .product-form-selector{
+        padding-top: 0 !important;
+        border-top: unset !important;
+    }
 }
 
 @media (max-width: $min-width-pre-mob){
@@ -88,6 +101,14 @@
     }
     .product-title-remeaning-colors{
         display: none !important;
+    }
+
+    .account-sidebar{
+        margin-top: 10px !important;
+    }
+
+    .account-block_title{
+        font-size: 22px;
     }
 
     #products_main{

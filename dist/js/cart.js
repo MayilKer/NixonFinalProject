@@ -3,13 +3,13 @@ $(document).ready(function(){
         e.preventDefault();
         $("#shop-cart").css("transform","translateX(0)");
         $(".cart-backdrop").addClass("is-visible");
-        $('body').css('overflow','hidden')
+        $('body').addClass("body-over-hid")
     });
     $("#close-cart").click(function(e){
         e.preventDefault();
         $("#shop-cart").css("transform","translateX(600px)");
         $(".cart-backdrop").removeClass("is-visible");
-        $('body').css('overflow','auto')
+        $('body').removeClass("body-over-hid");
     })
 
     $('#mobile-menu-open-close').click(function(){
@@ -125,12 +125,59 @@ $(document).ready(function(){
         $(".search-result_pro").css("pointer-events","none");
     })
 
+    $("#RecoverPassword").click(function(){
+        $("#CustomerLoginForm").addClass("hide");
+        $("#RecoverPasswordForm").removeClass("hide");
+    })
+
+    $("#HideRecoverPasswordLink").click(function(){
+        $("#CustomerLoginForm").removeClass("hide");
+        $("#RecoverPasswordForm").addClass("hide");
+    })
+
+    $("#RecoverPasswordAccountPage").click(function(){
+        $(".account-content_main").addClass("hide");
+        $("#RecoverPasswordFormAccount").removeClass("hide");
+    })
+
+    $("#HideRecoverPasswordLinkAccount").click(function(){
+        $(".account-content_main").removeClass("hide");
+        $("#RecoverPasswordFormAccount").addClass("hide");
+    })
+
+    $("#EditAdressShow").click(function(){
+        $("#acount-main-info").addClass("hide");
+        $("#EditAdress").removeClass("hide");
+
+    })
+
+    $("#hideEditAdress").click(function(){
+        $("#acount-main-info").removeClass("hide");
+        $("#EditAdress").addClass("hide");
+    })
+
+    $("#OrderHistory").click(function(){
+        $(".account-content_main").addClass("hide");
+        $("#orderHis").removeClass("hide");
+        $("#RecoverPasswordFormAccount").addClass("hide");
+        $(this).parent().addClass("is-active");
+        $(this).parent().siblings().removeClass("is-active");
+    })
+
+    $("#AcDetails").click(function(){
+        $(".account-content_main").removeClass("hide");
+        $("#orderHis").addClass("hide");
+        $(this).parent().addClass("is-active");
+        $(this).parent().siblings().removeClass("is-active");
+    })
+
+
 
     var distance = $('.navbar').offset().top; 
 
 $(window).scroll(function () {
      
-     if ($(window).scrollTop() >= distance) {
+     if ($(window).scrollTop() >= 200) {
          $('.navbar').addClass("sticky-navbar");
          $('.mobile-navbar').addClass("sticky-mobile-navbar");
      } else {

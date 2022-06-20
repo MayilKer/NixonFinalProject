@@ -451,6 +451,28 @@
     }
 }
 
+.breadcrumbs{
+    display: flex;
+    font-size: .625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+    font-weight: 500;
+    .breadcrumbs__crumb{
+        display: inline-flex;
+        align-items: center;
+        a{
+            color: #696c6f;
+        }
+        span{
+            display: inline-block;
+            padding: 0 5px;
+        }
+    }
+}
+h1{
+    font-size: 27px;
+}
+
 #products_main{
     font-family: $font-family;
     .hero-section{
@@ -1016,6 +1038,463 @@
                             color: $color-white
                         }
                     }              
+                }
+            }
+        }
+    }
+}
+
+#loginPage{
+    font-family: $font-family;
+    .layout-main-content{
+        flex-direction: column;
+        .customer-login{
+            .layout-content-wrapper{
+                margin-bottom: 45px;
+                .container{
+                    .row{
+                            h2{
+                                font-size: 22px;
+                                margin-bottom: 1rem;
+                                font-weight: 700;
+                            }
+                            .p2{
+                                font-size: .875rem;
+                                letter-spacing: 0;
+                                line-height: 1.57;
+                                font-weight: 300;
+                                margin-bottom: 25px;
+                            }
+                            form{
+                                margin-bottom: 3rem;
+                                .form-group{
+                                    position: relative;
+                                    margin-bottom: 1rem;
+                                    .form-control{
+                                        padding: 16px 1.25rem 8px;
+                                        height: calc(1.5em + 1.125rem + 2px);
+                                        border: 1px solid #b0b5b8;
+                                        border-radius: 2px;
+                                        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                        &:focus{
+                                            border-color: black;
+                                        }
+                                    }
+                                    .label-inline{
+                                        font-size: 12px;
+                                        padding-left: 6px;
+                                        padding-right: 6px;
+                                        transform: translateY(10px) translate(15px);
+                                        background: #fff;
+                                        z-index: 2;
+                                        color: #9ca1a4;
+                                    }
+                                    .form-text{
+                                        display: block;
+                                        text-align: right;
+                                        font-size: 12px;
+                                        color: $color-black;
+                                        font-weight: 600;
+                                    }
+                                    .signIn-btn{
+                                        display: block;
+                                        width: 100%;
+                                        padding: 0.5625rem 1.25rem;
+                                        font-size: 1rem;
+                                        border-radius: 2px;
+                                        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                        &:hover{
+                                            background-color: #696c6f;
+                                        }
+                                    }
+                                }
+                            }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#myAccountMain{
+    font-family: $font-family;
+    .layout-main-content{
+        flex-direction: column;
+        .layout-content-wrapper{
+            margin-bottom: 45px;
+            .container{
+                .row{
+                    .account-sidebar{
+                        .account-sidebar_content{
+                            margin-left: 0;
+                            margin-bottom: 0;
+                            padding-bottom: 0;
+                            .account-sidebar_title{
+                                font-size: 22px;
+                            }
+                            .account-sidebar_menu{
+                                padding-left: 30px;
+                                li{
+                                    position: relative;
+                                    margin-bottom: 15px;
+                                    a{
+                                        font-weight: 600;
+                                    }
+                                }
+                                .is-active{
+                                    &::before{
+                                        position: absolute;
+                                        content: "";
+                                        width: 20px;
+                                        height: 2px;
+                                        left: -30px;
+                                        top: 45%;
+                                        background: #000;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .account-content{
+                        .recover_password{
+                            form{
+                                .cancel-btn{
+                                    display: flex;
+                                    justify-content: space-between;
+                                }
+                                margin-bottom: 3rem;
+                                .form-group{
+                                    position: relative;
+                                    margin-bottom: 1rem;
+                                    .form-control{
+                                        padding: 16px 1.25rem 8px;
+                                        height: calc(1.5em + 1.125rem + 2px);
+                                        border: 1px solid #b0b5b8;
+                                        border-radius: 2px;
+                                        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                        &:focus{
+                                            border-color: black;
+                                        }
+                                    }
+                                    .label-inline{
+                                        font-size: 12px;
+                                        padding-left: 6px;
+                                        padding-right: 6px;
+                                        transform: translateY(10px) translate(15px);
+                                        background: #fff;
+                                        z-index: 2;
+                                        color: #9ca1a4;
+                                    }
+                                    .form-text{
+                                        display: block;
+                                        text-align: right;
+                                        font-size: 12px;
+                                        color: $color-black;
+                                        font-weight: 600;
+                                        &::after{
+                                            bottom: 10px;
+                                        }
+                                    }
+                                    .signIn-btn{
+                                        display: block;
+                                        padding: 0.5625rem 1.25rem;
+                                        font-size: 1rem;
+                                        border-radius: 2px;
+                                        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                        &:hover{
+                                            background-color: #696c6f;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        #orderHis{
+                            h5{
+                                font-size: 22px;
+                                font-weight: 600;
+                                text-align: center;
+                            }
+                            hr{
+                                margin-top: 1rem;
+                                margin-bottom: 1rem;
+                                border: 0;
+                                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                            }                        }
+                        .account-content_main{
+                            .row{
+                                .text-lg-left{
+                                    text-align: center;
+                                    font-size: 22px;
+                                    font-weight: 600;
+                                    margin-bottom: 15px;
+                                }
+                                .account-block{
+                                    .btn{
+                                          border-radius: 2px;
+                                          padding: 0.5625rem 1.25rem;
+                                          &:hover{
+                                            background-color: #696c6f;
+                                          }
+                                    }
+                                    .account-block_title{
+                                        font-weight: 600;
+                                    }
+                                    hr{
+                                        margin-top: 1rem;
+                                        margin-bottom: 1rem;
+                                        border: 0;
+                                        border-top: 1px solid rgba(0,0,0,.1)
+                                    }
+                                    .account-block_content{
+                                        address{
+                                            color: #333;
+                                            font-size: 14px;
+                                            line-height: 22px;
+                                        }
+                                        .btn-links{
+                                            margin-right: 8px;
+                                        }
+                                    }
+                                }
+                                .btn{
+                                    border-radius: 2px;
+                                          padding: 0.5625rem 1.25rem;
+                                          &:hover{
+                                            background-color: #696c6f;
+                                          }
+                                }
+                            }
+                            #EditAdress{
+                                form{
+                                    .inputs{
+                                        .form-group{
+                                            position: relative;
+                                            margin-bottom: 1rem;
+                                            .form-control{
+                                                padding: 16px 1.25rem 8px;
+                                                height: calc(1.5em + 1.125rem + 2px);
+                                                border: 1px solid #b0b5b8;
+                                                border-radius: 2px;
+                                                color: #696c6f;
+                                                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                &:focus{
+                                                    border-color: black;
+                                                }
+                                            }
+                                            .form-select{
+                                                padding: 16px 1.25rem 8px;
+                                                height: calc(1.5em + 1.125rem + 2px);
+                                                border: 1px solid #b0b5b8;
+                                                border-radius: 2px;
+                                                color: #696c6f;
+                                                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                &:focus{
+                                                    border-color: black;
+                                                }
+                                            }
+                                            .label-inline{
+                                                font-size: 12px;
+                                                padding-left: 6px;
+                                                padding-right: 6px;
+                                                transform: translateY(10px) translate(15px);
+                                                background: #fff;
+                                                z-index: 2;
+                                                color: #9ca1a4;
+                                            }
+                                            .form-text{
+                                                display: block;
+                                                text-align: right;
+                                                font-size: 12px;
+                                                color: $color-black;
+                                                font-weight: 600;
+                                            }
+                                            .signIn-btn{
+                                                display: block;
+                                                width: 100%;
+                                                padding: 0.5625rem 1.25rem;
+                                                font-size: 1rem;
+                                                border-radius: 2px;
+                                                transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                &:hover{
+                                                    background-color: #696c6f;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .form-group{
+                                    .btn-dark{
+                                        border-radius: 2px;
+                                        padding: 0.5625rem 1.25rem;
+                                        &:hover{
+                                            background-color: #696c6f;
+                                        }
+                                    }
+                                    .p3{
+                                        font-size: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#ProductPage{
+    .layout-main-content{
+        margin-bottom: 45px;
+        border-top: 1px solid #f5f5f5;
+        .section-product{
+            .product-main-info{
+                .container{
+                    .product-descrption{
+                        .badge-wrapper{
+                            min-height: 20px;
+                            margin-bottom: 0.5rem;
+                        }
+                        .product-detail_title{
+                            margin-bottom: 10px;
+                            font-size: 1.375rem;
+                            letter-spacing: 0;
+                            line-height: 1.2;
+                        }
+                        .product-detail_reviews{
+                            margin-bottom: 14px;
+                            .product-tile_rating{
+                                display: inline-block;
+                                margin-right: 5px;
+                                font-size: 12px;
+                            }
+                            .product-tile_reviews-count{
+                                font-size: 12px;
+                            }
+                        }
+                        .product-detail_description{
+                            margin-bottom: 90px;
+                        }
+                    }
+                    .d-lg-none{
+                        h1{
+                            font-size: 1.375rem;
+                            letter-spacing: 0;
+                            line-height: 1.2;
+                            margin-bottom: 14px;
+                        }
+                        .product-price__wrap{
+                            padding-top: 20px;
+                            border-top: 1px solid #000;
+                            margin-bottom: 10px;
+                            .large{
+                                span{
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .product-gallery{
+                    margin-left: 0;
+                    margin-right: 0;
+                    .product-gallery-main{
+                        .product-gallery-slide{
+                            position: relative;
+                            .slider-for {
+                                background-color: #fff;
+                                margin-bottom: 30px;
+                                overflow: hidden;
+                        
+                                .product-1 {
+                        
+                                    img {
+                                        max-width: 100%;
+                                    }
+                                }
+                            }
+                        
+                            .slider-nav {
+                        
+                                .product-2 {
+                                    img {
+                                        width: 53px;
+                                        overflow: hidden;
+                                    }
+                                    border: 1px solid #b0b5b8;
+                                    margin-right: 11px;
+                                }
+                            }
+                            .prev{
+                                border: none;
+                                position: absolute;
+                                bottom: 12px;
+                                left: -21px;
+                                background-color: transparent;
+                                padding: 8px;
+                                i{
+                                    font-size: 22px;
+                                    color: $color-black;
+                                }
+                            }
+                            .next{
+                                border: none;
+                                position: absolute;
+                                bottom: 12px;
+                                right: -21px;
+                                background-color: transparent;
+                                padding: 8px;
+                                i{
+                                    font-size: 22px;
+                                    color: $color-black;
+                                }
+                            }
+                        }
+                    }
+                }
+                .product-form-selectors{
+                    .product-code{
+                        font-size: .625rem;
+                        text-align: right;
+                        position: relative;
+                        bottom: -40px;
+                        display: block;
+                    }
+                    .product-form-selector{
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        border-top: 1px solid #000;
+                        .product-form-selector_header{
+                            font-weight: 500;
+                            font-size: 12px;
+                            margin-bottom: 16px;
+                            .product-form-selector_label{
+                                color: $color-black;
+                                .product-form-selector_value{
+                                    display: inline-block;
+                                    margin-left: 4px;
+                                    color: #696c6f;
+                                }
+                            }
+                        }
+                        .product-form-selector_content{
+                            .row{
+                                .product-form-selector_content-inner{
+                                    button{
+                                        overflow: hidden;
+                                        display: block;
+                                        outline: none;
+                                        background: none;
+                                        border: 1px solid #e2e2e3;
+                                            width: 50px;
+                                            img{
+                                                width: 100%;
+                                            }
+                                    }
+                                }                             
+                            }
+                        }
+                    }
                 }
             }
         }

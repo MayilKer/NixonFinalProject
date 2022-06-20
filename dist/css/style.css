@@ -154,9 +154,49 @@ a {
   color: black !important;
 }
 
+.product-border {
+  border: 1px solid #000 !important;
+}
+
 .search-menu-bar-vis {
   bottom: 0 !important;
   right: 0 !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.body-over-hid {
+  overflow: hidden;
+}
+
+.btn-links {
+  position: relative;
+  font-weight: 300;
+  color: #000000 !important;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.btn-links::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #000000;
+  -webkit-transition: all 125ms;
+  transition: all 125ms;
+}
+
+.btn-links:hover::after {
+  width: calc(100% + 10px);
+  -webkit-transform: translate(-5px);
+          transform: translate(-5px);
 }
 
 #banner {
@@ -547,7 +587,35 @@ header .navbar .container .row .navbar-right .nav-header-menu .account-dropdown 
   text-align: center;
 }
 
-header .navbar .container .row .navbar-right .nav-header-menu .register-dropdown {
+header .navbar .container .row .navbar-right .nav-header-menu .account-dropdown .account-login-dropdown {
+  min-width: 150px;
+  padding: 0 14px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+header .navbar .container .row .navbar-right .nav-header-menu .account-dropdown .account-login-dropdown ul {
+  text-align: left;
+  padding-left: 0;
+}
+
+header .navbar .container .row .navbar-right .nav-header-menu .account-dropdown .account-login-dropdown ul li {
+  margin-bottom: 15px;
+  padding: 0;
+  display: block;
+}
+
+header .navbar .container .row .navbar-right .nav-header-menu .account-dropdown .account-login-dropdown ul li:last-child {
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+  margin-bottom: 0;
+}
+
+header .navbar .container .row .navbar-right .nav-header-menu .account-dropdown .account-login-dropdown ul li a {
+  font-size: 14px;
+}
+
+header .navbar .container .row .navbar-right .nav-header-menu .register-dropdown i {
   cursor: pointer;
 }
 
@@ -1206,6 +1274,19 @@ header .is-visible {
     display: -ms-flexbox !important;
     display: flex !important;
   }
+  .text-lg-left {
+    text-align: left !important;
+  }
+  .account-sidebar_content {
+    margin-left: 45px !important;
+  }
+  .product-code {
+    bottom: -16px !important;
+  }
+  .product-form-selector {
+    padding-top: 0 !important;
+    border-top: unset !important;
+  }
 }
 
 @media (max-width: 992px) {
@@ -1242,6 +1323,12 @@ header .is-visible {
   }
   .product-title-remeaning-colors {
     display: none !important;
+  }
+  .account-sidebar {
+    margin-top: 10px !important;
+  }
+  .account-block_title {
+    font-size: 22px;
   }
   #products_main .hero-section .hero-inner .hero-body h2 {
     font-size: 28px !important;
@@ -1969,6 +2056,38 @@ header .is-visible {
   line-height: 1.57;
   font-weight: 300;
   color: #000000;
+}
+
+.breadcrumbs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: .625rem;
+  letter-spacing: 0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.breadcrumbs .breadcrumbs__crumb {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.breadcrumbs .breadcrumbs__crumb a {
+  color: #696c6f;
+}
+
+.breadcrumbs .breadcrumbs__crumb span {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+h1 {
+  font-size: 27px;
 }
 
 #products_main {
@@ -2709,5 +2828,508 @@ header .is-visible {
   border-radius: 2px;
   background-color: #000000;
   color: #ffff;
+}
+
+#loginPage {
+  font-family: "Sen", sans-serif;
+}
+
+#loginPage .layout-main-content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper {
+  margin-bottom: 45px;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row h2 {
+  font-size: 22px;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row .p2 {
+  font-size: .875rem;
+  letter-spacing: 0;
+  line-height: 1.57;
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row form {
+  margin-bottom: 3rem;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row form .form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row form .form-group .form-control {
+  padding: 16px 1.25rem 8px;
+  height: calc(1.5em + 1.125rem + 2px);
+  border: 1px solid #b0b5b8;
+  border-radius: 2px;
+  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row form .form-group .form-control:focus {
+  border-color: black;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row form .form-group .label-inline {
+  font-size: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
+  -webkit-transform: translateY(10px) translate(15px);
+          transform: translateY(10px) translate(15px);
+  background: #fff;
+  z-index: 2;
+  color: #9ca1a4;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row form .form-group .form-text {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: #000000;
+  font-weight: 600;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row form .form-group .signIn-btn {
+  display: block;
+  width: 100%;
+  padding: 0.5625rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 2px;
+  -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#loginPage .layout-main-content .customer-login .layout-content-wrapper .container .row form .form-group .signIn-btn:hover {
+  background-color: #696c6f;
+}
+
+#myAccountMain {
+  font-family: "Sen", sans-serif;
+}
+
+#myAccountMain .layout-main-content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper {
+  margin-bottom: 45px;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-sidebar .account-sidebar_content {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-sidebar .account-sidebar_content .account-sidebar_title {
+  font-size: 22px;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-sidebar .account-sidebar_content .account-sidebar_menu {
+  padding-left: 30px;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-sidebar .account-sidebar_content .account-sidebar_menu li {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-sidebar .account-sidebar_content .account-sidebar_menu li a {
+  font-weight: 600;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-sidebar .account-sidebar_content .account-sidebar_menu .is-active::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 2px;
+  left: -30px;
+  top: 45%;
+  background: #000;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form {
+  margin-bottom: 3rem;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form .cancel-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form .form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form .form-group .form-control {
+  padding: 16px 1.25rem 8px;
+  height: calc(1.5em + 1.125rem + 2px);
+  border: 1px solid #b0b5b8;
+  border-radius: 2px;
+  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form .form-group .form-control:focus {
+  border-color: black;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form .form-group .label-inline {
+  font-size: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
+  -webkit-transform: translateY(10px) translate(15px);
+          transform: translateY(10px) translate(15px);
+  background: #fff;
+  z-index: 2;
+  color: #9ca1a4;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form .form-group .form-text {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: #000000;
+  font-weight: 600;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form .form-group .form-text::after {
+  bottom: 10px;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form .form-group .signIn-btn {
+  display: block;
+  padding: 0.5625rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 2px;
+  -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .recover_password form .form-group .signIn-btn:hover {
+  background-color: #696c6f;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content #orderHis h5 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content #orderHis hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main .row .text-lg-left {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main .row .account-block .btn {
+  border-radius: 2px;
+  padding: 0.5625rem 1.25rem;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main .row .account-block .btn:hover {
+  background-color: #696c6f;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main .row .account-block .account-block_title {
+  font-weight: 600;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main .row .account-block hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main .row .account-block .account-block_content address {
+  color: #333;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main .row .account-block .account-block_content .btn-links {
+  margin-right: 8px;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main .row .btn {
+  border-radius: 2px;
+  padding: 0.5625rem 1.25rem;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main .row .btn:hover {
+  background-color: #696c6f;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress form .inputs .form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress form .inputs .form-group .form-control {
+  padding: 16px 1.25rem 8px;
+  height: calc(1.5em + 1.125rem + 2px);
+  border: 1px solid #b0b5b8;
+  border-radius: 2px;
+  color: #696c6f;
+  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress form .inputs .form-group .form-control:focus {
+  border-color: black;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress form .inputs .form-group .form-select {
+  padding: 16px 1.25rem 8px;
+  height: calc(1.5em + 1.125rem + 2px);
+  border: 1px solid #b0b5b8;
+  border-radius: 2px;
+  color: #696c6f;
+  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress form .inputs .form-group .form-select:focus {
+  border-color: black;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress form .inputs .form-group .label-inline {
+  font-size: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
+  -webkit-transform: translateY(10px) translate(15px);
+          transform: translateY(10px) translate(15px);
+  background: #fff;
+  z-index: 2;
+  color: #9ca1a4;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress form .inputs .form-group .form-text {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: #000000;
+  font-weight: 600;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress form .inputs .form-group .signIn-btn {
+  display: block;
+  width: 100%;
+  padding: 0.5625rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 2px;
+  -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress form .inputs .form-group .signIn-btn:hover {
+  background-color: #696c6f;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress .form-group .btn-dark {
+  border-radius: 2px;
+  padding: 0.5625rem 1.25rem;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress .form-group .btn-dark:hover {
+  background-color: #696c6f;
+}
+
+#myAccountMain .layout-main-content .layout-content-wrapper .container .row .account-content .account-content_main #EditAdress .form-group .p3 {
+  font-size: 12px;
+}
+
+#ProductPage .layout-main-content {
+  margin-bottom: 45px;
+  border-top: 1px solid #f5f5f5;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .container .product-descrption .badge-wrapper {
+  min-height: 20px;
+  margin-bottom: 0.5rem;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .container .product-descrption .product-detail_title {
+  margin-bottom: 10px;
+  font-size: 1.375rem;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .container .product-descrption .product-detail_reviews {
+  margin-bottom: 14px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .container .product-descrption .product-detail_reviews .product-tile_rating {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .container .product-descrption .product-detail_reviews .product-tile_reviews-count {
+  font-size: 12px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .container .product-descrption .product-detail_description {
+  margin-bottom: 90px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .container .d-lg-none h1 {
+  font-size: 1.375rem;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .container .d-lg-none .product-price__wrap {
+  padding-top: 20px;
+  border-top: 1px solid #000;
+  margin-bottom: 10px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .container .d-lg-none .product-price__wrap .large span {
+  font-size: 20px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery .product-gallery-main .product-gallery-slide {
+  position: relative;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery .product-gallery-main .product-gallery-slide .slider-for {
+  background-color: #fff;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery .product-gallery-main .product-gallery-slide .slider-for .product-1 img {
+  max-width: 100%;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery .product-gallery-main .product-gallery-slide .slider-nav .product-2 {
+  border: 1px solid #b0b5b8;
+  margin-right: 11px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery .product-gallery-main .product-gallery-slide .slider-nav .product-2 img {
+  width: 53px;
+  overflow: hidden;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery .product-gallery-main .product-gallery-slide .prev {
+  border: none;
+  position: absolute;
+  bottom: 12px;
+  left: -21px;
+  background-color: transparent;
+  padding: 8px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery .product-gallery-main .product-gallery-slide .prev i {
+  font-size: 22px;
+  color: #000000;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery .product-gallery-main .product-gallery-slide .next {
+  border: none;
+  position: absolute;
+  bottom: 12px;
+  right: -21px;
+  background-color: transparent;
+  padding: 8px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-gallery .product-gallery-main .product-gallery-slide .next i {
+  font-size: 22px;
+  color: #000000;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-form-selectors .product-code {
+  font-size: .625rem;
+  text-align: right;
+  position: relative;
+  bottom: -40px;
+  display: block;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-form-selectors .product-form-selector {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #000;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-form-selectors .product-form-selector .product-form-selector_header {
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-form-selectors .product-form-selector .product-form-selector_header .product-form-selector_label {
+  color: #000000;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-form-selectors .product-form-selector .product-form-selector_header .product-form-selector_label .product-form-selector_value {
+  display: inline-block;
+  margin-left: 4px;
+  color: #696c6f;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-form-selectors .product-form-selector .product-form-selector_content .row .product-form-selector_content-inner button {
+  overflow: hidden;
+  display: block;
+  outline: none;
+  background: none;
+  border: 1px solid #e2e2e3;
+  width: 50px;
+}
+
+#ProductPage .layout-main-content .section-product .product-main-info .product-form-selectors .product-form-selector .product-form-selector_content .row .product-form-selector_content-inner button img {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

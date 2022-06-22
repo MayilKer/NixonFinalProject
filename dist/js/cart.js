@@ -171,7 +171,9 @@ $(document).ready(function(){
         $(this).parent().siblings().removeClass("is-active");
     })
 
-
+    $('.pro-quanty').click(function(){
+        $('.quant-rot').toggleClass('rotate-180');
+    })
 
     var distance = $('.navbar').offset().top; 
 

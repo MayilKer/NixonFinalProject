@@ -2,6 +2,11 @@
     .cart-container{
         width: 400px !important;
     }
+    .banner-section{
+        .hero-inner{
+            padding: 40px 20px;
+        }
+    }
 }
 
 @media (min-width: $min-width-md){
@@ -35,6 +40,17 @@
         padding-top: 0 !important;
         border-top: unset !important;
     }
+    .product-form_add-to-cart{
+        border-top: unset !important;
+        padding-top: unset !important;
+    }
+    .icon-bg{
+        margin-right: 0 !important;
+        margin-bottom: 30px !important;
+    }
+    .fifty-media-container{
+        width: 50%;
+    }
 }
 
 @media (max-width: $min-width-pre-mob){
@@ -42,6 +58,9 @@
         .container{
             min-width: 1120px !important;
         }
+    }
+    .contact-form{
+        width: 100% !important;
     }
 }
 
@@ -71,6 +90,18 @@
                     }
                 }
             }
+        }
+    }
+    .product-2{
+        display: none !important;
+    }
+    .product-gallery{
+        .prev{
+            display: none !important;
+
+        }
+        .next{
+            display: none !important;
         }
     }
 }
@@ -122,7 +153,13 @@
             }
         }
     }
-
+    .pro-spec{
+        padding: 40px 0 !important;
+        background-color: transparent !important;
+    }
+    .specs{
+        padding: 40px 5px !important;
+    }
 }
 
 @media(max-width: 768px) {
@@ -153,6 +190,13 @@
     .product-title-swatches{
         padding-left: 0 !important;
         padding-right: 0 !important;
+    }
+    .pro-spec{
+        padding: 20px 0 40px !important;
+    }
+    .specs{
+        padding: 20px 5px !important;
+        max-width: 600px !important;
     }
 }
 
@@ -205,6 +249,25 @@
             }
         }
     }
+    .specs-list_item{
+        display: flex !important;
+        font-size: 12px !important;
+        line-height: 1.33 !important;
+    }
+    .specs-list_item-title{
+        color: #696c6f !important;
+        width: 30% !important;
+    }
+    .specs-list_item-content{
+        font-weight: 500 !important;
+        min-height: 32px !important;
+        width: 70% !important;
+    }
+    .banner-section{
+        .hero-inner{
+            padding: 80px 20px;
+        }
+    }
 }
 
 @media(min-width: 576px){
@@ -232,5 +295,10 @@
     .search-menu-bar-vis{
         height: 90% !important;
         width: 100% !important;
+    }
+    .banner-section{
+        .hero-inner{
+            padding: 30px 32px;
+        }
     }
 }

@@ -1,4 +1,5 @@
-$('.slider-for').slick({
+$(document).ready(function(){
+  $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
@@ -10,9 +11,14 @@ $('.slider-for').slick({
   });
   $('.slider-nav').slick({
     slidesToShow: 3,
+    dots:true,
     Infinity: false,
     slidesToScroll: 1,
     asNavFor: '.slider-for',
     centerMode: true,
-    focusOnSelect: true
+    focusOnSelect: true,
+    Infinity:false
   });
+})
+
+  

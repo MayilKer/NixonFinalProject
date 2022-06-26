@@ -1,0 +1,22 @@
+﻿@model Banner
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    <div class="col-lg-12 h3 mb-4 text-gray-800">
+        <h1>Banner Update</h1>
+    </div>
+    <div class="col-lg-12 mx-auto">
+        <form method="post">
+            <div class="form-group">
+                <label>Banner Contetnt</label>
+                <input asp-for="@Model.Content" class="form-control" placeholder="Enter Banner content">
+                <span class="text-danger" asp-validation-for="@Model.Content"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,33 @@
+﻿@model Settings
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    <div class="col-lg-12 h3 mb-4 text-gray-800">
+        <h1>Setting Update</h1>
+    </div>
+    <div class="col-lg-12 mx-auto">
+        <form method="post" enctype="multipart/form-data">
+            @if (Model.Key == "Logo")
+            {
+                <div class="form-group">
+                    <label>@Model.Key</label>
+                    <input asp-for="LogoImg" accept="image/jpeg" class="form-control" placeholder="Enter Product title">
+                    <span class="text-danger" asp-validation-for="LogoImg"></span>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <label>@Model.Key</label>
+                    <input asp-for="Value" class="form-control" placeholder="Enter Product title">
+                    <span class="text-danger" asp-validation-for="Value"></span>
+                </div>
+            }
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+

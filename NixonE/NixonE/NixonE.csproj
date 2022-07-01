@@ -7,6 +7,18 @@
   <ItemGroup>
     <Compile Remove="Migrations\20220624220519_UpdateBannerTable.cs" />
     <Compile Remove="Migrations\20220624220519_UpdateBannerTable.Designer.cs" />
+    <Compile Remove="Migrations\20220627144353_AddedStyleTable.cs" />
+    <Compile Remove="Migrations\20220627144353_AddedStyleTable.Designer.cs" />
+    <Compile Remove="Migrations\20220627145220_UpdateStyleTable_V1.cs" />
+    <Compile Remove="Migrations\20220627145220_UpdateStyleTable_V1.Designer.cs" />
+    <Compile Remove="Migrations\20220628205715_AddedProductColorsTable.cs" />
+    <Compile Remove="Migrations\20220628205715_AddedProductColorsTable.Designer.cs" />
+    <Compile Remove="Migrations\20220630093837_UpdateProductTabel_V4.cs" />
+    <Compile Remove="Migrations\20220630093837_UpdateProductTabel_V4.Designer.cs" />
+    <Compile Remove="Migrations\20220630094119_ProductTableUpdate_V4.cs" />
+    <Compile Remove="Migrations\20220630094119_ProductTableUpdate_V4.Designer.cs" />
+    <Compile Remove="Migrations\20220630110859_AddedProductFeaturesColumn.cs" />
+    <Compile Remove="Migrations\20220630110859_AddedProductFeaturesColumn.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Style>
+@{
+    int count = (ViewBag.PageIndex - 1) * 5;
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Count</th>
+            <th scope="col">Status</th>
+            <th scope="col">Setting</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Style style in Model)
+        {
+            count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@style.Name</td>
+                <td>@style.Products.Count()</td>
+                <td style="color:@(style.IsDeleted ? "red":"green")">@(style.IsDeleted ? "DeActive":"Active")</td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Update" asp-route-status="@ViewBag.Status" asp-route-page="@ViewBag.PageIndex" asp-route-id="@style.Id">Update</a>
+                    <a id="@(style.IsDeleted ? "restoreTag":"deleteTag")" class="btn @(style.IsDeleted ? "btn-primary":"btn-danger")" asp-route-status="@ViewBag.Status" asp-route-page="@ViewBag.PageIndex" asp-action="@(style.IsDeleted ? "Restore":"Delete")" asp-route-id="@style.Id">@(style.IsDeleted ? "Restore":"Delete")</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

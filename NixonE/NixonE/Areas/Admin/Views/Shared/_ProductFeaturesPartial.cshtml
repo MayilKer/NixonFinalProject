@@ -1,0 +1,17 @@
+﻿@model Product
+<div class="row">
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label>Feature Title</label>
+            <input class="form-control" name="Key[]" placeholder="Enter Feature Title of Product" />
+            <span asp-validation-for="Key" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label>Feature Description</label>
+            <input class="form-control" name="Value[]" placeholder="Enter Feature Description" />
+            <span asp-validation-for="Value" class="text-danger"></span>
+        </div>
+    </div>
+</div>

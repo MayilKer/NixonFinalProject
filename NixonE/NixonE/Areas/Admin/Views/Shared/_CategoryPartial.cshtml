@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Category>
+@{
+    int count = (ViewBag.PageIndex - 1) * 5;
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Count</th>
+            <th scope="col">Image</th>
+            <th scope="col">Main Status</th>
+            <th scope="col">Status</th>
+            <th scope="col">Setting</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Category category in Model)
+        {
+            count++;
+        <tr>
+            <th class="align-middle" scope="row">@count</th>
+            <td class="align-middle">@category.Name</td>
+            <td class="align-middle">@category.Products.Count()</td>
+            @if (category.MainCategory == true)
+            {
+                <td class="align-middle" style="width:10%"><img src="~/dist/images/CategoryImg/@category?.Image" alt="Alternate Text" style="width:90%" /></td>
+ }
+            else
+            {
+                <td class="align-middle" style="width:10%">No Data</td>
+            }
+            <td class="align-middle" style="color:@(category.MainCategory ? "green":"red")">@(category.MainCategory ? "Main":"Main Olmayan")</td>
+            <td class="align-middle" style="color:@(category.IsDeleted ? "red":"green")">@(category.IsDeleted ? "DeActive":"Active")</td>
+            <td class="d-flex mt-4">
+                <a class="btn btn-warning" style="margin-right:10px" asp-action="Update" asp-route-isMainRoute="@ViewBag.IsMain" asp-route-status="@ViewBag.Status" asp-route-page="@ViewBag.PageIndex" asp-route-id="@category.Id">Update</a>
+                <a id="@(category.IsDeleted ? "restoreTag":"deleteTag")" class="btn @(category.IsDeleted ? "btn-primary":"btn-danger")" asp-route-isMainRoute="@ViewBag.IsMain" asp-route-status="@ViewBag.Status" asp-route-page="@ViewBag.PageIndex" asp-action="@(category.IsDeleted ? "Restore":"Delete")" asp-route-id="@category.Id">@(category.IsDeleted ? "Restore":"Delete")</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

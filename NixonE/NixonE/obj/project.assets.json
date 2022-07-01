@@ -8481,11 +8481,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Program Files (x86)\\Рабочий стол\\NixonE\\NixonE\\NixonE.csproj",
+      "projectUniqueName": "C:\\Program Files (x86)\\Рабочий стол\\NixonProject\\NixonE\\NixonE\\NixonE.csproj",
       "projectName": "NixonE",
-      "projectPath": "C:\\Program Files (x86)\\Рабочий стол\\NixonE\\NixonE\\NixonE.csproj",
+      "projectPath": "C:\\Program Files (x86)\\Рабочий стол\\NixonProject\\NixonE\\NixonE\\NixonE.csproj",
       "packagesPath": "C:\\Users\\kerim\\.nuget\\packages\\",
-      "outputPath": "C:\\Program Files (x86)\\Рабочий стол\\NixonE\\NixonE\\obj\\",
+      "outputPath": "C:\\Program Files (x86)\\Рабочий стол\\NixonProject\\NixonE\\NixonE\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

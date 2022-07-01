@@ -14,5 +14,12 @@ namespace NixonE.DAL
         public DbSet<Settings> Settings { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Style> Styles { get; set; }
+        public DbSet<Use> Uses { get; set; }
+        public DbSet<Colour> Colors { get; set; }
+        public DbSet<ProductColors> ProductColors { get; set; }
+        public DbSet<ProductImages> ProductImages { get; set; }
+        public DbSet<ProductFeatures> ProductFeatures { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "l7Bendje35e3fjODIamjiFqO4Ev/zAZGo6h6twnc+mfHBwHuGe4Ml+Z2SwIxgqQR1/yDvoDSPVSSv59wHUFMag==",
+  "dgSpecHash": "Na5aWR0n2+S/valBjSE05Dckewpk+h5boOQxYuRYh+v04XPFi09UHThg3qbuJehA8sbo1MNzQxDq9zsm5pgMmQ==",
   "success": true,
-  "projectFilePath": "C:\\Program Files (x86)\\Рабочий стол\\NixonE\\NixonE\\NixonE.csproj",
+  "projectFilePath": "C:\\Program Files (x86)\\Рабочий стол\\NixonProject\\NixonE\\NixonE\\NixonE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

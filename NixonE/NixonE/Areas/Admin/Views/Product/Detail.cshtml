@@ -1,0 +1,38 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Product Delete</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card" style="width: 100%;">
+            <img class="card-img-top" style="width: 20%" src="~/dist/images/products/@Model.MainImage" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <span class="text-primary">Name of Product:</span> @Model.Name
+                </h5>
+                <h5 class="card-title"><span class="text-primary">Description:</span> @Model.Description</h5>
+                <h5 class="card-title"><span class="text-primary">Price:</span>@Model.Price</h5>
+                <h5 class="card-title"><span class="text-primary">Style:</span>@Model.Style.Name</h5>
+                <h5 class="card-title"><span class="text-primary">Tag:</span>@Model.Tag.Name</h5>
+                <h5 class="card-title"><span class="text-primary">Category:</span>@Model.Category.Name</h5>
+                <h5 class="card-title"><span class="text-primary">Usage of Product:</span>@Model.Use.Name</h5>
+                <h5 class="card-title"><span class="text-primary">Product Colors:</span>@string.Join(", ", Model.ProductColors.Select(x => x.Colour.Name))</h5>
+                @foreach (ProductFeatures item in Model.ProductFeatures)
+                {
+                    <h5 class="card-title"><span class="text-primary">Features Title:</span>@item.Key</h5>
+                    <h5 class="card-title"><span class="text-primary">Features Content:</span>@item.Value</h5>
+                }
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <a class="btn btn-primary" asp-action="Index" asp-route-status="@ViewBag.Status" asp-route-page="@ViewBag.PageIndex">Go To List</a>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,131 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-lg-6 h3 mb-4 text-gray-800">
+        <h1>Product Create</h1>
+    </div>
+    <div class="col-lg-12 mx-auto">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter Product title">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" class="form-control" placeholder="Enter Product price">
+                <span class="text-danger" asp-validation-for="Price"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control" placeholder="Enter Product title"></textarea>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainImgFile"></label>
+                <input asp-for="MainImgFile" accept="image/jpeg" class="form-control">
+                <span class="text-danger" asp-validation-for="MainImgFile"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductImagesFile"></label>
+                <input asp-for="ProductImagesFile" accept="image/jpeg" class="form-control" placeholder="Enter Product title">
+                <span class="text-danger" asp-validation-for="ProductImagesFile"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category"></label>
+                <select class="form-control" asp-for="CategoryId" asp-items="@new SelectList(ViewBag.MainCategory, nameof(Category.Id), nameof(Category.Name))">
+                    <option value="" selected>Choose...</option>
+                </select>
+                <span class="text-danger" asp-validation-for="CategoryId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TagId"></label>
+                <select class="form-control" asp-for="TagId" asp-items="@new SelectList(ViewBag.Tags, nameof(Tag.Id), nameof(Tag.Name))">
+                    <option value="">Choose...</option>
+                </select>
+                <span class="text-danger" asp-validation-for="TagId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StyleId"></label>
+                <select class="form-control" asp-for="StyleId" asp-items="@new SelectList(ViewBag.Styles, nameof(Style.Id), nameof(Style.Name))">
+                    <option value="">Choose...</option>
+                </select>
+                <span class="text-danger" asp-validation-for="StyleId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UseId"></label>
+                <select class="form-control" asp-for="UseId" asp-items="@new SelectList(ViewBag.Use, nameof(Use.Id), nameof(Use.Name))">
+                    <option value="">Choose...</option>
+                </select>
+                <span class="text-danger" asp-validation-for="UseId"></span>
+            </div>
+            <div class="InputContaine">
+                <div class="InputContaineForadd">
+                    @await Html.PartialAsync("_ProductColorPartial", Model)
+                </div>
+                <div class="addInputButton">
+                    <a asp-action="GetFormColorCount" id="inputadding" class="btn btn-primary">Add</a>
+                </div>
+            </div>
+            <div class="InputContaine">
+                <div class="InputContainerFeatures">
+                    @await Html.PartialAsync("_ProductFeaturesPartial", Model)
+                </div>
+                <div class="addInputButton">
+                    <a asp-controller="Product" asp-action="GetFormProductFeatures" id="inputfeatures" asp-area="Admin" class="btn btn-primary">Add another Features</a>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+@section Script{
+    <partial name="_ValidateFormPartial">
+        <script>
+
+            $.validator.methods.range = function (value, element, param) {
+                var globalizedValue = value.replace(",", ".");
+                return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+            }
+
+            $.validator.methods.number = function (value, element) {
+                return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+            }
+            //Date dd/MM/yyyy
+            $.validator.methods.date = function (value, element) {
+                var date = value.split("/");
+                return this.optional(element) || !/Invalid|NaN/.test(new Date(date[2], date[1], date[0]).toString());
+            }
+        </script>
+        <script>
+            $(document).on("click", "#inputadding", function (e) {
+                e.preventDefault();
+                let url = $(this).attr("href")
+                fetch(url).then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                }).then(data => {
+                    $(".InputContaineForadd").append(data);
+                })
+            })
+        </script>
+        <script>
+            $(document).on("click", "#inputfeatures", function (e) {
+                e.preventDefault();
+                let url = $(this).attr("href")
+                fetch(url).then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                }).then(data => {
+                    $(".InputContainerFeatures").append(data);
+                })
+            })
+        </script>
+}

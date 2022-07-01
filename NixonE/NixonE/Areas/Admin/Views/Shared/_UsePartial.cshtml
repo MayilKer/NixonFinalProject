@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Use>
+@{
+    int count = (ViewBag.PageIndex - 1) * 5;
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Count</th>
+            <th scope="col">Status</th>
+            <th scope="col">Setting</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Use use in Model)
+        {
+            count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@use.Name</td>
+                <td>@use.Products.Count()</td>
+                <td style="color:@(use.IsDeleted ? "red":"green")">@(use.IsDeleted ? "DeActive":"Active")</td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Update" asp-route-status="@ViewBag.Status" asp-route-page="@ViewBag.PageIndex" asp-route-id="@use.Id">Update</a>
+                    <a id="@(use.IsDeleted ? "restoreTag":"deleteTag")" class="btn @(use.IsDeleted ? "btn-primary":"btn-danger")" asp-route-status="@ViewBag.Status" asp-route-page="@ViewBag.PageIndex" asp-action="@(use.IsDeleted ? "Restore":"Delete")" asp-route-id="@use.Id">@(use.IsDeleted ? "Restore":"Delete")</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

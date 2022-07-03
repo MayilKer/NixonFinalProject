@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using NixonE.DAL;
 using NixonE.Models;
+using NixonE.ViewModels.Home;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,16 +14,23 @@ namespace NixonE.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly NixonDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(NixonDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            HomeVM homeVM = new HomeVM
+            {
+                categories = await _context.Categories.Where(c => !c.IsDeleted && c.MainCategory).Include(c => c.Children).ToListAsync(),
+                mainHero = await _context.MainHeroes.FirstOrDefaultAsync(),
+                products = await _context.Products.Where(p => !p.IsDeleted).OrderByDescending(p => p.CreatedAt).Include(p => p.ProductImages).ToListAsync(),
+                OfferHeroes = await _context.OfferHeroes.ToListAsync()
+            };
+            return View(homeVM);
         }
 
         public IActionResult Privacy()

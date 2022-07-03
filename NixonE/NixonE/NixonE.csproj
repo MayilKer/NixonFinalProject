@@ -19,6 +19,14 @@
     <Compile Remove="Migrations\20220630094119_ProductTableUpdate_V4.Designer.cs" />
     <Compile Remove="Migrations\20220630110859_AddedProductFeaturesColumn.cs" />
     <Compile Remove="Migrations\20220630110859_AddedProductFeaturesColumn.Designer.cs" />
+    <Compile Remove="Migrations\20220701145402_UpdateHeroTable.cs" />
+    <Compile Remove="Migrations\20220701145402_UpdateHeroTable.Designer.cs" />
+    <Compile Remove="Migrations\20220702155604_asdasd.cs" />
+    <Compile Remove="Migrations\20220702155604_asdasd.Designer.cs" />
+    <Compile Remove="Migrations\20220702155642_UpdateCategoryTable.cs" />
+    <Compile Remove="Migrations\20220702155642_UpdateCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20220702214912_AddedOfferHeroesTable.cs" />
+    <Compile Remove="Migrations\20220702214912_AddedOfferHeroesTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

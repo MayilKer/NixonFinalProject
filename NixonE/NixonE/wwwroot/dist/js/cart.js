@@ -43,35 +43,32 @@ $(document).ready(function(){
     });
 
     $(".image-ch").hover(
-        function(){
+        function () {
             let mainImg = $(this).parent().parent().parent().prev().children().children().children();
-            var bg = $(this).children().css('background-image');
-            bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
+            var bg = $(this).children().children('img').attr('src')
             $(this).siblings().removeClass("dot-active");
             $(this).toggleClass("dot-active");
-            mainImg.attr('src',bg);
+            mainImg.attr('src', bg);
         },
-        function(){
-                        if($links.is(".clicked")){  
-               $links.removeClass("clicked");            
-            }else{
+        function () {
+            if ($links.is(".clicked")) {
+                $links.removeClass("clicked");
+            } else {
                 $(this).removeClass("dot-active");
                 $(this).siblings().first().addClass("dot-active")
                 let mainImg = $(this).parent().parent().parent().prev().children().children().children();
-                var bg = $(".image-ch").first().children().css('background-image');
-                bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
-                mainImg.attr('src',bg);
+                var bg = $(this).parent().children().first().children().children().attr('src')
+                mainImg.attr('src', bg);
             }
         }
     )
 
-    $(".image-ch").click(function() {
+    $(".image-ch").click(function () {
         let mainImg = $(this).parent().parent().parent().prev().children().children().children();
-        var bg = $(this).children().css('background-image');
-        bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
+        var bg = $(this).children().children().attr('src');
         $(this).siblings().removeClass("dot-active");
         $(this).addClass("dot-active");
-        mainImg.attr('src',bg);
+        mainImg.attr('src', bg);
     });
 
     

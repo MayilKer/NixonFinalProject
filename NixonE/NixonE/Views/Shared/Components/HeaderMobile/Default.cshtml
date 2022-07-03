@@ -1,0 +1,833 @@
+﻿@model HeaderVM
+    <div class="panel">
+        <div class="expandable-list">
+            <div class="expandable-list_header">
+                <a class="expandable-list_header_title open_expand" href="#">
+                    Men's Watches
+                </a>
+                <span class="expandable-list_header_title">
+                    <svg width="6" height="10" viewbox="0 0 6 10" fill="none" style="fill: none;" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L1 9" stroke="black"></path>
+                    </svg>
+                </span>
+            </div>
+            <div id="mobile-primary-menu-1" class="drawer">
+                <div class="expandable-list_body">
+                    <div class="mobile-menu_back">
+                        <a class="close-expand" href="#">
+                            <span>
+                                <svg width="6" height="10" viewbox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 9L1 5L5 1" stroke="black"></path>
+                                </svg>
+                                Back
+                            </span>
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a href="#">
+                            All Men's Watches
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Featured
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-2-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Tag.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-3-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Styles
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-3-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Style.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Use
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-4-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.UseId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Use.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="expandable-list">
+            <div class="expandable-list_header">
+                <a class="expandable-list_header_title open_expand" href="#">
+                    Women's Watches
+                </a>
+                <span class="expandable-list_header_title">
+                    <svg width="6" height="10" viewbox="0 0 6 10" fill="none" style="fill: none;" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L1 9" stroke="black"></path>
+                    </svg>
+                </span>
+            </div>
+            <div id="mobile-primary-menu-women-1" class="drawer">
+                <div class="expandable-list_body">
+                    <div class="mobile-menu_back">
+                        <a class="close-expand" href="#">
+                            <span>
+                                <svg width="6" height="10" viewbox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 9L1 5L5 1" stroke="black"></path>
+                                </svg>
+                                Back
+                            </span>
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a href="#">
+                            All Women's Watches
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-women-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Featured
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-women-2-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Tag.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-women-3-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Styles
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-women-3-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Style.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-women-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Use
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-women-4-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.UseId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Use.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="expandable-list">
+            <div class="expandable-list_header">
+                <a class="expandable-list_header_title open_expand" href="#">
+                    Bags
+                </a>
+                <span class="expandable-list_header_title">
+                    <svg width="6" height="10" viewbox="0 0 6 10" fill="none" style="fill: none;" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L1 9" stroke="black"></path>
+                    </svg>
+                </span>
+            </div>
+            <div id="mobile-primary-menu-bag-1" class="drawer">
+                <div class="expandable-list_body">
+                    <div class="mobile-menu_back">
+                        <a class="close-expand" href="#">
+                            <span>
+                                <svg width="6" height="10" viewbox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 9L1 5L5 1" stroke="black"></path>
+                                </svg>
+                                Back
+                            </span>
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a href="#">
+                            All Bags
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-bag-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Featured
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-bag-2-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Tag.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-bag-3-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Styles
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-bag-3-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Style.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-bag-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Use
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-bag-4-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.UseId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Use.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="expandable-list">
+            <div class="expandable-list_header">
+                <a class="expandable-list_header_title open_expand" href="#">
+                    Headwear
+                </a>
+                <span class="expandable-list_header_title">
+                    <svg width="6" height="10" viewbox="0 0 6 10" fill="none" style="fill: none;" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L1 9" stroke="black"></path>
+                    </svg>
+                </span>
+            </div>
+            <div id="mobile-primary-menu-headwear-1" class="drawer">
+                <div class="expandable-list_body">
+                    <div class="mobile-menu_back">
+                        <a class="close-expand" href="#">
+                            <span>
+                                <svg width="6" height="10" viewbox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 9L1 5L5 1" stroke="black"></path>
+                                </svg>
+                                Back
+                            </span>
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a href="#">
+                            All Headwear
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-headwear-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Featured
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-headwear-2-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Tag.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-headwear-3-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Fits
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-headwear-3-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Style.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-headwear-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Styles
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-headwear-4-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Style.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="expandable-list">
+            <div class="expandable-list_header">
+                <a class="expandable-list_header_title open_expand" href="#">
+                    Clothing
+                </a>
+                <span class="expandable-list_header_title">
+                    <svg width="6" height="10" viewbox="0 0 6 10" fill="none" style="fill: none;" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L1 9" stroke="black"></path>
+                    </svg>
+                </span>
+            </div>
+            <div id="mobile-primary-menu-clo-1" class="drawer">
+                <div class="expandable-list_body">
+                    <div class="mobile-menu_back">
+                        <a class="close-expand" href="#">
+                            <span>
+                                <svg width="6" height="10" viewbox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 9L1 5L5 1" stroke="black"></path>
+                                </svg>
+                                Back
+                            </span>
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a href="#">
+                            All Clothing
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-clo-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Featured
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-clo-2-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Tag.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-clo-3-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Style
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-clo-3-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Style.Name
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-clo-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Accessories
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-clo-4-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Wallets
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Belts
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Other Accessories
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Face Masks
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-clo-5-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Trending
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-clo-5-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Sustainable Clothing & Accessories
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="expandable-list">
+            <div class="expandable-list_header">
+                <a class="expandable-list_header_title open_expand" href="#">
+                    Bands
+                </a>
+                <span class="expandable-list_header_title">
+                    <svg width="6" height="10" viewbox="0 0 6 10" fill="none" style="fill: none;" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L1 9" stroke="black"></path>
+                    </svg>
+                </span>
+            </div>
+            <div id="mobile-primary-menu-band-1" class="drawer">
+                <div class="expandable-list_body">
+                    <div class="mobile-menu_back">
+                        <a class="close-expand" href="#">
+                            <span>
+                                <svg width="6" height="10" viewbox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 9L1 5L5 1" stroke="black"></path>
+                                </svg>
+                                Back
+                            </span>
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a href="#">
+                            All Bands
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-band-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Band Size
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-band-2-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    16mm
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    20mm
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    23mm
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-band-3-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Band Material
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-band-3-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Leather
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Rubber
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Sustainable
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-band-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Band Type
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-band-4-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    NATO
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Quick Release
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="expandable-list">
+            <div class="expandable-list_header">
+                <a class="expandable-list_header_title" href="#">
+                    Custom
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="expandable-list">
+            <div class="expandable-list_header">
+                <a class="expandable-list_header_title open_expand" href="#">
+                    Gifts
+                </a>
+                <span class="expandable-list_header_title">
+                    <svg width="6" height="10" viewbox="0 0 6 10" fill="none" style="fill: none;" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L1 9" stroke="black"></path>
+                    </svg>
+                </span>
+            </div>
+            <div id="mobile-primary-menu-gift-1" class="drawer">
+                <div class="expandable-list_body">
+                    <div class="mobile-menu_back">
+                        <a class="close-expand" href="#">
+                            <span>
+                                <svg width="6" height="10" viewbox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 9L1 5L5 1" stroke="black"></path>
+                                </svg>
+                                Back
+                            </span>
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a href="#">
+                            All Gifts
+                        </a>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-gift-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Featured
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-gift-2-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Custom Watches
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Engravable Watches
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-gift-3-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Gifts For Him
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-gift-3-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Top Rated Gifts
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Gifts Under $50
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Gifts Under $150
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Shop All
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-gift-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Gifts For Her
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-gift-4-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Top Rated Gifts
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Gifts Under $50
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Gifts Under $150
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Shop All
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expandable-list__item sublinks">
+                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-gift-5-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
+                            Gifts By Occasion
+                            <span>
+                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div id="mobile-primary-menu-gift-5-sub" class="collapse">
+                        <div class="expandable-list_body">
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Father's Day
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Anniversary
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Birthday
+                                </a>
+                            </div>
+                            <div class="expandable-list__item">
+                                <a href="#" class="expandable-list_item-title">
+                                    Wedding
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

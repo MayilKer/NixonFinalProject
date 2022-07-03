@@ -117,6 +117,55 @@ namespace NixonE.Migrations
                     b.ToTable("Colors");
                 });
 
+            modelBuilder.Entity("NixonE.Models.MainHero", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("HeroImgMob")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HeroImgWeb")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MainHeroes");
+                });
+
+            modelBuilder.Entity("NixonE.Models.OfferHeroes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageMob")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageWeb")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OfferHeroes");
+                });
+
             modelBuilder.Entity("NixonE.Models.Product", b =>
                 {
                     b.Property<int>("Id")

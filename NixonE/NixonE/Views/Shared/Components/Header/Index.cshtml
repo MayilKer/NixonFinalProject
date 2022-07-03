@@ -1,0 +1,547 @@
+﻿@model HeaderVM
+<li class="nav-items">
+    <a href="">
+        Men's Watches
+        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1L5 5L1 1" stroke="black"></path>
+        </svg>
+    </a>
+    <div id="section-mens-watch" class="header-category-dropdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown-menu-main">
+                        <div class="dropdown-menu-left">
+                            <ul>
+                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                                {
+                                    <li>
+                                        <a asp-route-id="@item.Tag.Id">
+                                            @item.Tag.Name
+                                        </a>
+                                    </li>
+                                }
+                                <li>
+                                    <a href="#">
+                                        Shop All
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-menu-right">
+                            <ul class="dropdown-menu-right-multi">
+                                <li>
+                                    <a href="">Styles</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Style.Id">
+                                                    @item.Style.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Use</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Use.Id">
+                                                    @item.Use.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Trending</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Id">
+                                                    @item.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li class="nav-items">
+    <a href="">
+        Women's Watches
+        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1L5 5L1 1" stroke="black"></path>
+        </svg>
+    </a>
+    <div id="section-mens-watch" class="header-category-dropdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown-menu-main">
+                        <div class="dropdown-menu-left">
+                            <ul>
+                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                                {
+                                    <li>
+                                        <a asp-route-id="@item.Tag.Id">
+                                            @item.Tag.Name
+                                        </a>
+                                    </li>
+                                }
+                                <li>
+                                    <a href="#">
+                                        Shop All
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-menu-right">
+                            <ul class="dropdown-menu-right-multi">
+                                <li>
+                                    <a href="">Styles</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Style.Id">
+                                                    @item.Style.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Use</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Use.Id">
+                                                    @item.Use.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Trending</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Id">
+                                                    @item.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li class="nav-items">
+    <a href="">
+        Bags
+        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1L5 5L1 1" stroke="black"></path>
+        </svg>
+    </a>
+    <div id="section-mens-watch" class="header-category-dropdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown-menu-main">
+                        <div class="dropdown-menu-left">
+                            <ul>
+                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                                {
+                                    <li>
+                                        <a asp-route-id="@item.Tag.Id">
+                                            @item.Tag.Name
+                                        </a>
+                                    </li>
+                                }
+                                <li>
+                                    <a href="#">
+                                        Shop All
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-menu-right">
+                            <ul class="dropdown-menu-right-multi">
+                                <li>
+                                    <a href="">Styles</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Style.Id">
+                                                    @item.Style.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Use</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Use.Id">
+                                                    @item.Use.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Trending</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Id">
+                                                    @item.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li class="nav-items">
+    <a href="">
+        Backpacks
+        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1L5 5L1 1" stroke="black"></path>
+        </svg>
+    </a>
+    <div id="section-mens-watch" class="header-category-dropdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown-menu-main">
+                        <div class="dropdown-menu-left">
+                            <ul>
+                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
+                                {
+                                    <li>
+                                        <a asp-route-id="@item.Tag.Id">
+                                            @item.Tag.Name
+                                        </a>
+                                    </li>
+                                }
+                                <li>
+                                    <a href="#">
+                                        Shop All
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-menu-right">
+                            <ul class="dropdown-menu-right-multi">
+                                <li>
+                                    <a href="">Styles</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Style.Id">
+                                                    @item.Style.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Use</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Use.Id">
+                                                    @item.Use.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Trending</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Id">
+                                                    @item.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li class="nav-items">
+    <a href="">
+        Clothing
+        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1L5 5L1 1" stroke="black"></path>
+        </svg>
+    </a>
+    <div id="section-mens-watch" class="header-category-dropdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown-menu-main">
+                        <div class="dropdown-menu-left">
+                            <ul>
+                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                                {
+                                    <li>
+                                        <a asp-route-id="@item.Tag.Id">
+                                            @item.Tag.Name
+                                        </a>
+                                    </li>
+                                }
+                                <li>
+                                    <a href="#">
+                                        Shop All
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-menu-right">
+                            <ul class="dropdown-menu-right-multi">
+                                <li>
+                                    <a href="">Styles</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Style.Id">
+                                                    @item.Style.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Use</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Use.Id">
+                                                    @item.Use.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Trending</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Id">
+                                                    @item.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li class="nav-items">
+    <a href="">
+        Accessories
+        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1L5 5L1 1" stroke="black"></path>
+        </svg>
+    </a>
+    <div id="section-mens-watch" class="header-category-dropdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown-menu-main">
+                        <div class="dropdown-menu-left">
+                            <ul>
+                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                                {
+                                    <li>
+                                        <a asp-route-id="@item.Tag.Id">
+                                            @item.Tag.Name
+                                        </a>
+                                    </li>
+                                }
+                                <li>
+                                    <a href="#">
+                                        Shop All
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-menu-right">
+                            <ul class="dropdown-menu-right-multi">
+                                <li>
+                                    <a href="">Styles</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Style.Id">
+                                                    @item.Style.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Use</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Use.Id">
+                                                    @item.Use.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Trending</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Id">
+                                                    @item.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li class="nav-items">
+    <a href="">
+        Headwears
+        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1L5 5L1 1" stroke="black"></path>
+        </svg>
+    </a>
+    <div id="section-mens-watch" class="header-category-dropdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown-menu-main">
+                        <div class="dropdown-menu-left">
+                            <ul>
+                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                                {
+                                    <li>
+                                        <a asp-route-id="@item.Tag.Id">
+                                            @item.Tag.Name
+                                        </a>
+                                    </li>
+                                }
+                                <li>
+                                    <a href="#">
+                                        Shop All
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-menu-right">
+                            <ul class="dropdown-menu-right-multi">
+                                <li>
+                                    <a href="">Styles</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Style.Id">
+                                                    @item.Style.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Use</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Use.Id">
+                                                    @item.Use.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Trending</a>
+                                    <ul>
+                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                                        {
+                                            <li>
+                                                <a asp-route-id="@item.Id">
+                                                    @item.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

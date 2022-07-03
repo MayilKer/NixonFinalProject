@@ -1,8 +1,451 @@
-﻿@{
+﻿@model HomeVM
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Main Start -->
+
+<main role="main" id="MainContent">
+    <div class="main_content">
+        <div class="hero-section">
+            <div class="hero-inner">
+                <div class="hero-body">
+                    <h1>
+                        <b>
+                            <strong>@Model.mainHero.Title</strong>
+                        </b>
+                    </h1>
+                    <div class="hero-middle">
+                        <p>
+                            @Model.mainHero.Content
+                        </p>
+                    </div>
+                    <div class="hero-btn">
+                        <a href="" class="btn btn-light">
+                            Shop Now
+                        </a>
+                    </div>
+                </div>
+                <picture class="hero-picture">
+                    <source media="(min-width: 768px)" srcset="~/dist/images/MainHero/@Model.mainHero.HeroImgWeb">
+                    <img src="~/dist/images/MainHero/@Model.mainHero.HeroImgMob" alt="">
+                </picture>
+            </div>
+        </div>
+        <div class="category-section">
+            @foreach (Category item in Model.categories.Where(c=>c.Name !="Clothing & Accessories"))
+            {
+                <div class="category-box">
+                    <picture class="category-title-img">
+                        <source media="(768px)" srcset="~/dist/images/CategoryImg/@item.Image">
+                        <img src="~/dist/images/CategoryImg/@item.Image" alt="">
+                    </picture>
+                    <div class="category-title-content">
+                        <h5>
+                            @item.Name
+                        </h5>
+                        @if (item.Name == "All Watches")
+                        {
+                            <div class="category-title-buttons">
+                                @foreach (Category items in item.Children)
+                                {
+                                    <a asp-route-id="@items.Id" class="btn">
+                                        @items.Name
+                                    </a>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="category-title-buttons">
+                                <a asp-route-id="@item.Id" class="btn">
+                                    Shop Now
+                                </a>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="product-slider-section">
+            <div class="container">
+                <div class="slider-content">
+                    <div class="slider-content-header d-flex justify-content-between align-items-center">
+                        <h3 class="header-left">
+                            You Might Like
+                        </h3>
+                        <a href="#" class="header-right">
+                            Shop All
+                        </a>
+                    </div>
+                    <div class="autoplay autoplay-sm slideshow">
+                        @foreach (Product item in Model.products)
+                        {
+                            <div class="product-slide">
+                                <div class="product-title">
+                                    <div class="product-title-contents">
+                                        <div class="product-title-gallery">
+                                            <a href="#">
+                                                <div class="product-title-gallery-image">
+                                                    <img src="~/dist/images/products/@item.MainImage" alt="">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="product-title-info">
+                                            <div class="product-title-swatches">
+                                                <div class="dots">
+                                                    @foreach (ProductImages img in item.ProductImages)
+                                                    {
+                                                        <div class="dot dot_image image-ch">
+                                                            <div class="dot-inner">
+                                                                <img style="width: 100%;" src="~/dist/images/products/@img.Image" alt="">
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    <div class="product-title-remeaning-colors">
+                                                        +7 more
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h3 class="product-title-info_titles">
+                                                <a href="#">
+                                                    @item.Name
+                                                </a>
+                                            </h3>
+                                            <div class="product-title-info_price">
+                                                <div>$@item.Price.ToString("0.00")</div>
+                                            </div>
+                                            <div class="product-title-info-rewiea">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @*<div class="product-slide">
+            <div class="product-title">
+                <div class="product-title-contents">
+                    <div class="product-title-gallery">
+                        <a href="#">
+                            <div class="product-title-gallery-image">
+                                <img src="~/dist/images/products/A1267-008-view1_500x.webp" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-title-info">
+                        <div class="product-title-swatches">
+                            <div class="dots">
+                                <div class="dot dot_image dot-active image-ch">
+                                    <div class="dot-inner" style="background-image:url('./dist/images/products/A1267-008-view1_500x.webp')">
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(//cdn.shopify.com/s/files/1/0541/0272/0705/products/A1267-000-view1_500x.png?v=1639584575)"></div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(//cdn.shopify.com/s/files/1/0541/0272/0705/products/A1267-131-view1_500x.png?v=1639584577)">
+
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(//cdn.shopify.com/s/files/1/0541/0272/0705/products/A1267-1089-view1_500x.png?v=1639584576)">
+                                    </div>
+                                </div>
+                                <div class="product-title-remeaning-colors">
+                                    +7 more
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="product-title-info_titles">
+                            <a href="#">
+                                Staple
+                            </a>
+                        </h3>
+                        <div class="product-title-info_price">
+                            <div>$125.00</div>
+                        </div>
+                        <div class="product-title-info-rewiea">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-slide">
+            <div class="product-title">
+                <div class="product-title-contents">
+                    <div class="product-title-gallery">
+                        <a href="#">
+                            <div class="product-title-gallery-image">
+                                <img src="~/dist/images/products/A045-511-view1_500x.webp" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-title-info">
+                        <div class="product-title-swatches">
+                            <div class="dots">
+                                <div class="dot dot_image dot-active image-ch">
+                                    <div class="dot-inner" style="background-image:url('./dist/images/products/A045-511-view1_500x.webp')">
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(//cdn.shopify.com/s/files/1/0541/0272/0705/products/A045-1919-view1_500x.png?v=1639584403)"></div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(//cdn.shopify.com/s/files/1/0541/0272/0705/products/A045-001-view1_500x.png?v=1639584400)">
+
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(//cdn.shopify.com/s/files/1/0541/0272/0705/products/A045-2800-view1_500x.png?v=1639584410)">
+                                    </div>
+                                </div>
+                                <div class="product-title-remeaning-colors">
+                                    +7 more
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="product-title-info_titles">
+                            <a href="#">
+                                Staple
+                            </a>
+                        </h3>
+                        <div class="product-title-info_price">
+                            <div>$125.00</div>
+                        </div>
+                        <div class="product-title-info-rewiea">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-slide">
+            <div class="product-title">
+                <div class="product-title-contents">
+                    <div class="product-title-gallery">
+                        <a href="#">
+                            <div class="product-title-gallery-image">
+                                <img src="~/dist/images/products/C3024-1481-view1_500x.webp" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-title-info">
+                        <div class="product-title-swatches">
+                            <div class="dots">
+                                <div class="dot dot_image dot-active image-ch">
+                                    <div class="dot-inner" style="background-image:url('./dist/images/products/C3024-1481-view1_500x.webp')">
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(//cdn.shopify.com/s/files/1/0541/0272/0705/products/C3024-000-view1_500x.png?v=1654095784)"></div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(//cdn.shopify.com/s/files/1/0541/0272/0705/products/C3024-147-view3_500x.png?v=1641916935)">
+
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(//cdn.shopify.com/s/files/1/0541/0272/0705/products/C3024-3440-view1_eb74e1d8-28ed-4dc2-abdb-df3a15cbef14_500x.png?v=1654182171)">
+                                    </div>
+                                </div>
+                                <div class="product-title-remeaning-colors">
+                                    +7 more
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="product-title-info_titles">
+                            <a href="#">
+                                Staple
+                            </a>
+                        </h3>
+                        <div class="product-title-info_price">
+                            <div>$125.00</div>
+                        </div>
+                        <div class="product-title-info-rewiea">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-slide">
+            <div class="product-title">
+                <div class="product-title-contents">
+                    <div class="product-title-gallery">
+                        <a href="#">
+                            <div class="product-title-gallery-image">
+                                <img src="~/dist/images/products/A1309-000-view1_500x.webp" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-title-info">
+                        <div class="product-title-swatches">
+                            <div class="dots">
+                                <div class="dot dot_image dot-active image-ch">
+                                    <div class="dot-inner" style="background-image:url(https://cdn.shopify.com/s/files/1/0541/0272/0705/products/A1309-000-view1_500x.png?v=1640275601)">
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(https://cdn.shopify.com/s/files/1/0541/0272/0705/products/A1309-2889-view1_500x.png?v=1640275614)"></div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(https://cdn.shopify.com/s/files/1/0541/0272/0705/products/A1309-010-view1_500x.png?v=1640275603)">
+
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(https://cdn.shopify.com/s/files/1/0541/0272/0705/products/A1309-200-view1_500x.png?v=1640275610)">
+                                    </div>
+                                </div>
+                                <div class="product-title-remeaning-colors">
+                                    +7 more
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="product-title-info_titles">
+                            <a href="#">
+                                Staple
+                            </a>
+                        </h3>
+                        <div class="product-title-info_price">
+                            <div>$125.00</div>
+                        </div>
+                        <div class="product-title-info-rewiea">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-slide">
+            <div class="product-title">
+                <div class="product-title-contents">
+                    <div class="product-title-gallery">
+                        <a href="#">
+                            <div class="product-title-gallery-image">
+                                <img src="~/dist/images/products/A1309-000-view1_500x.webp" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-title-info">
+                        <div class="product-title-swatches">
+                            <div class="dots">
+                                <div class="dot dot_image dot-active image-ch">
+                                    <div class="dot-inner" style="background-image:url(https://cdn.shopify.com/s/files/1/0541/0272/0705/products/A1309-000-view1_500x.png?v=1640275601)">
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(https://cdn.shopify.com/s/files/1/0541/0272/0705/products/A1309-2889-view1_500x.png?v=1640275614)"></div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(https://cdn.shopify.com/s/files/1/0541/0272/0705/products/A1309-010-view1_500x.png?v=1640275603)">
+
+                                    </div>
+                                </div>
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner" style="background-image:url(https://cdn.shopify.com/s/files/1/0541/0272/0705/products/A1309-200-view1_500x.png?v=1640275610)">
+                                    </div>
+                                </div>
+                                <div class="product-title-remeaning-colors">
+                                    +7 more
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="product-title-info_titles">
+                            <a href="#">
+                                Staple
+                            </a>
+                        </h3>
+                        <div class="product-title-info_price">
+                            <div>$125.00</div>
+                        </div>
+                        <div class="product-title-info-rewiea">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+                    </div>
+                    <button class="prev">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="next">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="our-offers-section py-4">
+            <div class="offers-container">
+                @foreach (OfferHeroes item in Model.OfferHeroes.OrderByDescending(o=>o.Id))
+                {
+                    if (item.Name == "Second")
+                    {
+                        <div class="offers">
+                            <picture class="offers-img">
+                                <source media="(min-width: 768px)" srcset="~/dist/images/Offers/@item.ImageWeb">
+                                <img src="~/dist/images/Offers/@item.ImageMob" alt="">
+                            </picture>
+                            <div class="offers-content">
+                                <h5></h5>
+                                <div class="offers-content-buttons">
+                                    <a href="#" class="btn btn-link">
+                                        Shop Men's
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="offers-content-links">
+                                <a href="#" class="offers-content-links-item"></a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="offers">
+                            <picture class="offers-img">
+                                <source media="(min-width: 768px)" srcset="~/dist/images/Offers/@item.ImageWeb">
+                                <img src="~/dist/images/Offers/@item.ImageMob" alt="">
+                            </picture>
+                            <div class="offers-content">
+                                <h5>
+                                    All Surf Watches
+                                </h5>
+                                <div class="offers-content-buttons">
+                                    <a href="#" class="btn btn-link ms-4">
+                                        Shop Women's
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="offers-content-links">
+                                <a href="#" class="offers-content-links-item"></a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="about-nixon">
+            <div class="container">
+                <div class="richtext-wrapper">
+                    <div class="richtext-content">
+                        <p>
+                            Nixon is the go-to accessories shop for premium watches and much more.
+                            With a wide range of quality watches, apparel, backpacks, and accessories,
+                            Nixon stays true to its surf, skate and snow roots. From everyday sports
+                            & fitness watches for an active lifestyle to small digital watches for a night out,
+                            there's something for everyone.
+                            Whether you need an everyday watch or are looking for your next skateboard watch
+                            , Nixon has you covered.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Main End -->

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<OfferHeroes>
+
+    @{
+        ViewData["Title"] = "Index";
+        int count = 0;
+    }
+
+    <div class="row">
+        <div class="col-lg-6 h3 mb-4 text-gray-800">
+            <h1>Home Page Offers Hero</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 tagTable">B
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Web Image</th>
+                        <th scope="col">Mobile Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (OfferHeroes heroes in Model)
+                    {
+                        count++;
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td><img src="~/dist/images/Offers/@heroes.ImageWeb" alt="Alternate Text" style="width:60%" /></td>
+                        <td><img src="~/dist/images/Offers/@heroes.ImageMob" alt="Alternate Text" style="width:60%" /></td>
+                        <td class="d-flex">
+                            <a class="btn btn-warning mr-1 ml-1" asp-action="Update" asp-route-id="@heroes.Id">Update</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+

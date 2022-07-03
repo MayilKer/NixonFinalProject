@@ -208,9 +208,9 @@ namespace NixonE.Areas.Admin.Controllers
 
             if (products == null) return NotFound();
 
-            //products.ColourIds = products.ProductColors.Select(pt => pt.Colour.Id).ToList();
-            //products.Key = products.ProductFeatures.Select(p => p.Key).ToList();
-            //products.Value = products.ProductFeatures.Select(p => p.Value).ToList();
+            products.ColourIds = products.ProductColors.Select(pt => pt.Colour.Id).ToList();
+            products.Key = products.ProductFeatures.Select(p => p.Key).ToList();
+            products.Value = products.ProductFeatures.Select(p => p.Value).ToList();
 
             return View(products);
         }

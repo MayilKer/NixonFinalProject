@@ -1,0 +1,54 @@
+﻿@model MainHero
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-lg-6 h3 mb-4 text-gray-800">
+        <h1>Product Create</h1>
+    </div>
+    <div class="col-lg-12 mx-auto">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" placeholder="Enter Main Hero Title">
+                <span class="text-danger" asp-validation-for="Title"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content"></label>
+                <textarea asp-for="Content" id="inputTel" class="form-control" placeholder="Enter Main Hero Content"></textarea>
+                <span class="text-danger" asp-validation-for="Content"></span>
+            </div>
+            <div class="form-group">
+                <label>Hero Image For Web Version</label>
+                <input asp-for="HeroImgWebFile" class="form-control">
+                <span class="text-danger" asp-validation-for="HeroImgWebFile"></span>
+            </div>
+            <div class="form-group">
+                <label>Hero Image For Mobile Version</label>
+                <input asp-for="HeroImgMobFile" class="form-control">
+                <span class="text-danger" asp-validation-for="HeroImgMobFile"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+@section Script{
+                <script>
+                    const inputTel = document.querySelector('#inputTel')
+                    let msg
+                    inputTel.addEventListener('focusout', event => {
+                        let length = inputTel.value.length
+                        if (length > 100) {
+                            msg = 'Maksimum 100 simvol ola biler!'
+                            alert(msg)
+                        }
+                        else if (length < 11) {
+                            msg = 'Minumym 11 simvol olmalidir!'
+                            alert(msg)
+                        }
+                    })
+                </script>
+}
+

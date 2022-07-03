@@ -26,8 +26,29 @@ using NixonE.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\_ViewImports.cshtml"
+using NixonE.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\_ViewImports.cshtml"
+using NixonE.ViewModels.Home;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\_ViewImports.cshtml"
+using NixonE.ViewModels.Header;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ffa1fe8dad749669b4af445128cdfd8d49783af3", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"93a6601f8ea4fe653e92a99e2b91eec452929e69", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

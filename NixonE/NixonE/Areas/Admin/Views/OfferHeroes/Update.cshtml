@@ -1,0 +1,27 @@
+﻿@model OfferHeroes
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Create</h1>
+<div class="row">
+    <div class="col-lg-6 h3 mb-4 text-gray-800">
+        <h1>Product Create</h1>
+    </div>
+    <div class="col-lg-12 mx-auto">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Offer Image for Web Version</label>
+                <input asp-for="ImageFileWeb" class="form-control">
+                <span class="text-danger" asp-validation-for="ImageFileWeb"></span>
+            </div>
+            <div class="form-group">
+                <label>Offer Image for Mobile Version</label>
+                <input asp-for="ImageFileMob" class="form-control">
+                <span class="text-danger" asp-validation-for="ImageFileMob"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+

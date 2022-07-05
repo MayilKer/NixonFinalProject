@@ -1,0 +1,403 @@
+﻿@model ProductsVM
+@{
+    ViewData["Title"] = "Products";
+}
+
+<main role="main" id="products_main">
+    <div class="hero-section">
+        <div class="hero-inner" style="z-index:1">
+            <div class="hero-body">
+                <h2 class="hero-heading">
+                   @Model.Category.Name
+                </h2>
+            </div>
+        </div>
+        <picture class="hero-picture">
+            <source media="(min-width: 768px)" srcset="~/dist/images/productshero/Men'sWatchesHeroWeb.jpg">
+            <img src="~/dist/images/productshero/Men'sWatchesHeroMob.jpg" alt="">
+        </picture>
+    </div>
+    <div class="container pt-3 mt-3">
+        <div class="container">
+            <nav class="breadcrumbs" role="navigation" aria-label="breadcrumb">
+                <div class="breadcrumbs__crumb">
+                    <a asp-controller="Home" asp-action="Index" title="Home">Home</a>
+                    <span>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </span>
+                </div>
+                <div class="breadcrumbs_crumb">
+                    @Model.Category.Name
+                </div>
+            </nav>
+            <h1 class="pt-4 pb-2 pb-md-0 mb-0">
+                @Model.Category.Name
+            </h1>
+        </div>
+        <div id="collection" class="mt-4">
+            <div class="container">
+                <div class="search-result-header">
+                    <div class="search-result-filters">
+                        <ul class="search-result-filters_buttons">
+                            <li>
+                                <a href="#" class="cart-header_title btn">
+                                    Featured
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="cart-header_title btn">
+                                    Type
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="cart-header_title btn">
+                                    Color
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="cart-header_title btn">
+                                    Usage
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-none d-xl-block">
+                        <div role="button" class="search-sort">
+                            <button class="btn open-sort">
+                                Sort
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5L5 1L9 5" stroke="black"></path></svg>
+                            </button>
+                            <ul>
+                                <li>
+                                    <a href="./products.html" class="sort-item">
+                                        <span>
+                                            Relevance
+                                        </span>
+                                        <i class="active-sort"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./products.html" class="sort-item">
+                                        <span>
+                                            Best Sellers
+                                        </span>
+                                        <i></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./products.html" class="sort-item">
+                                        <span>
+                                            Top Rated
+                                        </span>
+                                        <i></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./products.html" class="sort-item">
+                                        <span>
+                                            Price: low to high
+                                        </span>
+                                        <i></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./products.html" class="sort-item">
+                                        <span>
+                                            Price: high to low
+                                        </span>
+                                        <i></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="search-resul_item-total">
+                        <span>@Model.Products.Count()</span>
+                        items
+                    </span>
+                </div>
+            </div>
+            <div class="container">
+                <ul class="row product-list">
+                    @if (Model.Products.Count() <= 0)
+                    {
+
+
+                        <li>
+                            Soryy, Not Found Any Product
+                        </li>
+                    }
+                    else
+                    {
+                        @foreach (Product item in Model.Products.Where(p => p.Availability == true))
+                        {
+                            <li class="product-list-item col-6 col-sm-4 col-md-3">
+                                <div class="product-title">
+                                    <div class="product-title-contents">
+                                        <div class="product-title-gallery">
+                                            <a href="#">
+                                                <div class="product-title-gallery-image">
+                                                    <img src="~/dist/images/products/@item.MainImage" alt="">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="product-title-info">
+                                            <div class="product-title-swatches mb-2 d-lg-flex align-items-center justify-content-center">
+                                                <div class="dots">
+                                                    @foreach (ProductImages img in item.ProductImages)
+                                                    {
+                                                        <div class="dot dot_image image-ch">
+                                                            <div class="dot-inner">
+                                                                <img style="width: 100%;" src="~/dist/images/products/@img.Image" alt="">
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <h3 class="product-title-info_titles">
+                                                <a href="#">
+                                                    @item.Name
+                                                </a>
+                                            </h3>
+                                            <div class="product-title-info_price">
+                                                <div>$@item.Price.ToString("F2")</div>
+                                            </div>
+                                            <div class="product-tile_reviews">
+                                                <span class="product-tile_rating">
+                                                    <span>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa-solid fa-star-half-stroke"></i>
+                                                    </span>
+                                                </span>
+                                                <span class="product-tile_reviews-count">
+                                                    (122)
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    }
+
+                </ul>
+                @if (Model.Products.Count() > 8)
+                {
+                    <div class="load-more">
+                        <div class="load-more_button">
+                            <button class="btn text-center">
+                                Load More
+                            </button>
+                        </div>
+                        <div class="load-more_items-count">
+                            Showing 12 of 42 items
+                        </div>
+                    </div>
+                }
+            </div>
+            <form>
+                <div class="search-result_pro">
+                    <div class="search-result_pro_overlay"></div>
+                    <div class="search-result_pro_panel">
+                        <div class="search-result_pro_panel-header">
+                            <div class="search-result_pro_panel-current-header justify-content-end">
+                                <button class="btn cancel-search-filter">
+                                    Cancel
+                                </button>
+                            </div>
+                            <ul class="search-result_pro_panel-current">
+                            </ul>
+                        </div>
+                        <div class="accordion">
+                            <div class="search-card">
+                                <div class="search-card-header">
+                                    <p class="mb-0">
+                                        <a class="search-bar" data-bs-toggle="collapse" href="#searchSort" role="button" aria-expanded="false" aria-controls="searchSort">
+                                            Sort
+                                            <span>
+                                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div id="searchSort" class="collapse">
+                                    <div class="card-body">
+                                        <div class="search-result-sort">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" class="search-results__sort-item sort-radio">
+                                                        <span>
+                                                            Relevance
+                                                        </span>
+                                                        <i class="active"></i>
+                                                    </a>
+                                                </li>
+                                                @foreach (Tag tags in Model.Tags)
+                                                {
+                                                    <li>
+                                                        <a href="#" class="search-results__sort-item sort-radio">
+                                                            <span>
+                                                                @tags.Name
+                                                            </span>
+                                                            <i></i>
+                                                            <input class="d-none" type="checkbox" name="tagId" value="@tags.Id" />
+                                                        </a>
+
+                                                    </li>
+                                                }
+                                                <li>
+                                                    <a href="#" class="search-results__sort-item sort-radio">
+                                                        <span>
+                                                            Price: low to high
+                                                        </span>
+                                                        <i></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="search-results__sort-item sort-radio">
+                                                        <span>
+                                                            Price: high to low
+                                                        </span>
+                                                        <i></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-card">
+                                <div class="search-card-header">
+                                    <p class="mb-0">
+                                        <a class="search-bar" data-bs-toggle="collapse" href="#searchType" role="button" aria-expanded="false" aria-controls="searchType">
+                                            Type
+                                            <span>
+                                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div id="searchType" class="collapse">
+                                    <div class="card-body">
+                                        <ul class="search-result-items">
+                                            @foreach (Style item in Model.Styles)
+                                            {
+                                                <li class="search-results__item-type">
+                                                    <a href="javascript:void(0);" class="check-box-btn">
+                                                        <span>
+                                                            @item.Name
+                                                        </span>
+                                                        <div class="custom-check-box">
+                                                            <input type="checkbox" class="custom-control-input" name="styleId" value="@item.Id" id="checkType0">
+                                                            <label for="checkType0" class="custom-control-label"></label>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-card">
+                                <div class="search-card-header">
+                                    <p class="mb-0">
+                                        <a class="search-bar" data-bs-toggle="collapse" href="#searchColor" role="button" aria-expanded="false" aria-controls="searchColor">
+                                            Color
+                                            <span>
+                                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div id="searchColor" class="collapse">
+                                    <div class="card-body">
+                                        <ul class="search-result-items-color search-result-items">
+                                            @foreach (ProductColors colour in Model.ProductColors)
+                                            {
+                                                <li class="search-results__item-color">
+                                                    <a href="javascript:void(0);" class="check-box-btn search-color">
+                                                        <span class="search-result-color-content">
+                                                            <span class="search-result-color-content_cercle" style="background-color: @colour.Colour.Name; background-image: url();">
+                                                                <i class="fa-solid fa-check check-color-s"></i>
+                                                            </span>
+                                                            <span class="search-result-color-content_name">
+                                                                @colour.Colour.Name
+                                                            </span>
+                                                        </span>
+                                                        <input class="d-none col-inp" name="colorid" value="@colour.ColourId" type="checkbox" />
+                                                    </a>
+                                                </li>
+
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-card">
+                                <div class="search-card-header">
+                                    <p class="mb-0">
+                                        <a class="search-bar" data-bs-toggle="collapse" href="#searchPrice" role="button" aria-expanded="false" aria-controls="searchPrice">
+                                            Usage
+                                            <span>
+                                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div id="searchPrice" class="collapse">
+                                    <div class="card-body">
+                                        <ul class="search-result-items">
+                                            @foreach (Use use in Model.Uses)
+                                            {
+                                                <li class="search-results__item-price">
+                                                    <a href="javascript:void(0);" class="check-box-btn">
+                                                        <span>
+                                                            @use.Name
+                                                        </span>
+                                                        <div class="custom-check-box">
+                                                            <input type="checkbox" name="useId" value="@use.Id" class="custom-control-input" id="itemPrice0">
+                                                            <label for="checkType0" class="custom-control-label"></label>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="search-results_footer">
+                                <button type="submit" class="btn">
+                                    Apply
+                                </button>
+                            </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+

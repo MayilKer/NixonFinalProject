@@ -654,7 +654,7 @@ header .navbar .container .navbar-bottom .header-category-dropdown {
   position: absolute;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 3;
   padding: 20px 0;
   background-color: #ffff;
   overflow: hidden;

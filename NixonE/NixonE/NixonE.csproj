@@ -44,4 +44,9 @@
     <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\dist\sass\layout\_footer.scss" />
+    <None Include="wwwroot\dist\sass\layout\_header.scss" />
+  </ItemGroup>
+
 </Project>

@@ -348,3 +348,4 @@ C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\De
 C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OfferHeroes\Index.cshtml.g.cs
 C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OfferHeroes\Update.cshtml.g.cs
 C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HeaderMobile\Default.cshtml.g.cs
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs

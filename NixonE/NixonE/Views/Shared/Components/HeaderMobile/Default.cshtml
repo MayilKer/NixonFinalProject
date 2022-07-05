@@ -545,7 +545,7 @@
         <div class="expandable-list">
             <div class="expandable-list_header">
                 <a class="expandable-list_header_title open_expand" href="#">
-                    Bands
+                    Accessories
                 </a>
                 <span class="expandable-list_header_title">
                     <svg width="6" height="10" viewbox="0 0 6 10" fill="none" style="fill: none;" xmlns="http://www.w3.org/2000/svg">
@@ -567,12 +567,12 @@
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a href="#">
-                            All Bands
+                            All Accessories
                         </a>
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-band-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Band Size
+                            Featured
                             <span>
                                 <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
@@ -583,26 +583,19 @@
                     </div>
                     <div id="mobile-primary-menu-band-2-sub" class="collapse">
                         <div class="expandable-list_body">
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    16mm
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    20mm
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    23mm
-                                </a>
-                            </div>
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Tag.Name
+                                    </a>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-band-3-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Band Material
+                            Styles
                             <span>
                                 <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
@@ -613,218 +606,14 @@
                     </div>
                     <div id="mobile-primary-menu-band-3-sub" class="collapse">
                         <div class="expandable-list_body">
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Leather
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Rubber
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Sustainable
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="expandable-list__item sublinks">
-                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-band-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Band Type
-                            <span>
-                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                </svg>
-                            </span>
-                        </a>
-                    </div>
-                    <div id="mobile-primary-menu-band-4-sub" class="collapse">
-                        <div class="expandable-list_body">
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    NATO
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Quick Release
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="panel">
-        <div class="expandable-list">
-            <div class="expandable-list_header">
-                <a class="expandable-list_header_title" href="#">
-                    Custom
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="panel">
-        <div class="expandable-list">
-            <div class="expandable-list_header">
-                <a class="expandable-list_header_title open_expand" href="#">
-                    Gifts
-                </a>
-                <span class="expandable-list_header_title">
-                    <svg width="6" height="10" viewbox="0 0 6 10" fill="none" style="fill: none;" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L5 5L1 9" stroke="black"></path>
-                    </svg>
-                </span>
-            </div>
-            <div id="mobile-primary-menu-gift-1" class="drawer">
-                <div class="expandable-list_body">
-                    <div class="mobile-menu_back">
-                        <a class="close-expand" href="#">
-                            <span>
-                                <svg width="6" height="10" viewbox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 9L1 5L5 1" stroke="black"></path>
-                                </svg>
-                                Back
-                            </span>
-                        </a>
-                    </div>
-                    <div class="expandable-list__item sublinks">
-                        <a href="#">
-                            All Gifts
-                        </a>
-                    </div>
-                    <div class="expandable-list__item sublinks">
-                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-gift-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Featured
-                            <span>
-                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                </svg>
-                            </span>
-                        </a>
-                    </div>
-                    <div id="mobile-primary-menu-gift-2-sub" class="collapse">
-                        <div class="expandable-list_body">
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Custom Watches
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Engravable Watches
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="expandable-list__item sublinks">
-                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-gift-3-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Gifts For Him
-                            <span>
-                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                </svg>
-                            </span>
-                        </a>
-                    </div>
-                    <div id="mobile-primary-menu-gift-3-sub" class="collapse">
-                        <div class="expandable-list_body">
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Top Rated Gifts
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Gifts Under $50
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Gifts Under $150
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Shop All
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="expandable-list__item sublinks">
-                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-gift-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Gifts For Her
-                            <span>
-                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                </svg>
-                            </span>
-                        </a>
-                    </div>
-                    <div id="mobile-primary-menu-gift-4-sub" class="collapse">
-                        <div class="expandable-list_body">
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Top Rated Gifts
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Gifts Under $50
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Gifts Under $150
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Shop All
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="expandable-list__item sublinks">
-                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-gift-5-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Gifts By Occasion
-                            <span>
-                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                </svg>
-                            </span>
-                        </a>
-                    </div>
-                    <div id="mobile-primary-menu-gift-5-sub" class="collapse">
-                        <div class="expandable-list_body">
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Father's Day
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Anniversary
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Birthday
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Wedding
-                                </a>
-                            </div>
+                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                            {
+                                <div class="expandable-list__item">
+                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
+                                        @item.Style.Name
+                                    </a>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

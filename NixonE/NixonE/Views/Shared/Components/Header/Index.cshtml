@@ -1,11 +1,14 @@
 ﻿@model HeaderVM
 <li class="nav-items">
-    <a href="">
-        Men's Watches
-        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 1L5 5L1 1" stroke="black"></path>
-        </svg>
-    </a>
+    @foreach (Category item in Model.categories.Where(c => c.Name == "Men's Watches"))
+    {
+        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+            @item.Name
+            <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L5 5L1 1" stroke="black"></path>
+            </svg>
+        </a>
+    }
     <div id="section-mens-watch" class="header-category-dropdown">
         <div class="container">
             <div class="row">
@@ -78,12 +81,15 @@
     </div>
 </li>
 <li class="nav-items">
-    <a href="">
-        Women's Watches
-        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 1L5 5L1 1" stroke="black"></path>
-        </svg>
-    </a>
+    @foreach (Category item in Model.categories.Where(c => c.Name == "Women's Watches"))
+    {
+        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+            @item.Name
+            <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L5 5L1 1" stroke="black"></path>
+            </svg>
+        </a>
+    }
     <div id="section-mens-watch" class="header-category-dropdown">
         <div class="container">
             <div class="row">
@@ -94,7 +100,7 @@
                                 @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
                                 {
                                     <li>
-                                        <a asp-route-id="@item.Tag.Id">
+                                        <a asp-controller="Products" asp-action="Index" asp-route-tagId="@item.Tag.Id" asp-route-id="@item.CategoryId">
                                             @item.Tag.Name
                                         </a>
                                     </li>
@@ -114,7 +120,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Style.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
                                                     @item.Style.Name
                                                 </a>
                                             </li>
@@ -127,7 +133,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Use.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
                                                     @item.Use.Name
                                                 </a>
                                             </li>
@@ -156,12 +162,15 @@
     </div>
 </li>
 <li class="nav-items">
-    <a href="">
-        Bags
-        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 1L5 5L1 1" stroke="black"></path>
-        </svg>
-    </a>
+    @foreach (Category item in Model.categories.Where(c => c.Name == "Bag"))
+    {
+        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+            @item.Name
+            <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L5 5L1 1" stroke="black"></path>
+            </svg>
+        </a>
+    }
     <div id="section-mens-watch" class="header-category-dropdown">
         <div class="container">
             <div class="row">
@@ -172,7 +181,7 @@
                                 @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
                                 {
                                     <li>
-                                        <a asp-route-id="@item.Tag.Id">
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
                                             @item.Tag.Name
                                         </a>
                                     </li>
@@ -192,7 +201,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Style.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
                                                     @item.Style.Name
                                                 </a>
                                             </li>
@@ -205,7 +214,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Use.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
                                                     @item.Use.Name
                                                 </a>
                                             </li>
@@ -234,12 +243,15 @@
     </div>
 </li>
 <li class="nav-items">
-    <a href="">
-        Backpacks
-        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 1L5 5L1 1" stroke="black"></path>
-        </svg>
-    </a>
+    @foreach (Category item in Model.categories.Where(c => c.Name == "Backpacks"))
+    {
+        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+            @item.Name
+            <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L5 5L1 1" stroke="black"></path>
+            </svg>
+        </a>
+    }
     <div id="section-mens-watch" class="header-category-dropdown">
         <div class="container">
             <div class="row">
@@ -250,7 +262,7 @@
                                 @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
                                 {
                                     <li>
-                                        <a asp-route-id="@item.Tag.Id">
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
                                             @item.Tag.Name
                                         </a>
                                     </li>
@@ -270,7 +282,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Style.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
                                                     @item.Style.Name
                                                 </a>
                                             </li>
@@ -283,7 +295,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Use.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
                                                     @item.Use.Name
                                                 </a>
                                             </li>
@@ -312,12 +324,15 @@
     </div>
 </li>
 <li class="nav-items">
-    <a href="">
-        Clothing
-        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 1L5 5L1 1" stroke="black"></path>
-        </svg>
-    </a>
+    @foreach (Category item in Model.categories.Where(c => c.Name == "Clothing"))
+    {
+        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+            @item.Name
+            <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L5 5L1 1" stroke="black"></path>
+            </svg>
+        </a>
+    }
     <div id="section-mens-watch" class="header-category-dropdown">
         <div class="container">
             <div class="row">
@@ -328,7 +343,7 @@
                                 @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
                                 {
                                     <li>
-                                        <a asp-route-id="@item.Tag.Id">
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
                                             @item.Tag.Name
                                         </a>
                                     </li>
@@ -348,7 +363,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Style.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
                                                     @item.Style.Name
                                                 </a>
                                             </li>
@@ -361,7 +376,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Use.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
                                                     @item.Use.Name
                                                 </a>
                                             </li>
@@ -390,12 +405,15 @@
     </div>
 </li>
 <li class="nav-items">
-    <a href="">
-        Accessories
-        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 1L5 5L1 1" stroke="black"></path>
-        </svg>
-    </a>
+    @foreach (Category item in Model.categories.Where(c => c.Name == "Accessories"))
+    {
+        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+            @item.Name
+            <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L5 5L1 1" stroke="black"></path>
+            </svg>
+        </a>
+    }
     <div id="section-mens-watch" class="header-category-dropdown">
         <div class="container">
             <div class="row">
@@ -406,7 +424,7 @@
                                 @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
                                 {
                                     <li>
-                                        <a asp-route-id="@item.Tag.Id">
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
                                             @item.Tag.Name
                                         </a>
                                     </li>
@@ -426,7 +444,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Style.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
                                                     @item.Style.Name
                                                 </a>
                                             </li>
@@ -439,7 +457,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Use.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
                                                     @item.Use.Name
                                                 </a>
                                             </li>
@@ -468,12 +486,15 @@
     </div>
 </li>
 <li class="nav-items">
-    <a href="">
-        Headwears
-        <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 1L5 5L1 1" stroke="black"></path>
-        </svg>
-    </a>
+    @foreach (Category item in Model.categories.Where(c => c.Name == "Headwears"))
+    {
+        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+            @item.Name
+            <svg width="10" height="6" fill="none" style="fill:none;" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L5 5L1 1" stroke="black"></path>
+            </svg>
+        </a>
+    }
     <div id="section-mens-watch" class="header-category-dropdown">
         <div class="container">
             <div class="row">
@@ -484,7 +505,7 @@
                                 @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
                                 {
                                     <li>
-                                        <a asp-route-id="@item.Tag.Id">
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
                                             @item.Tag.Name
                                         </a>
                                     </li>
@@ -504,7 +525,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Style.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
                                                     @item.Style.Name
                                                 </a>
                                             </li>
@@ -517,7 +538,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Use.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
                                                     @item.Use.Name
                                                 </a>
                                             </li>

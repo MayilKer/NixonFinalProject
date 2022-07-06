@@ -49,7 +49,7 @@
                             <div class="category-title-buttons">
                                 @foreach (Category items in item.Children)
                                 {
-                                    <a asp-route-id="@items.Id" class="btn">
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="@items.Id" class="btn">
                                         @items.Name
                                     </a>
                                 }
@@ -57,11 +57,14 @@
                         }
                         else
                         {
-                            <div class="category-title-buttons">
-                                <a asp-route-id="@item.Id" class="btn">
-                                    Shop Now
-                                </a>
-                            </div>
+                            @foreach (Category children in item.Children)
+                            {
+                                <div class="category-title-buttons">
+                                    <a asp-controller="Products" asp-action="Index" asp-route-mainId="@children.ParentId" asp-route-id="@children.Id" class="btn">
+                                        @children.Name
+                                    </a>
+                                </div>
+                            }
                         }
 
                     </div>

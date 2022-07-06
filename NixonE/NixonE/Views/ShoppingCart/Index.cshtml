@@ -1,0 +1,11 @@
+﻿@model List<BasketVM>
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<main role="main" id="shoppingCartPage">
+    <div class="layout-content-wrapper" id="shopcart">
+        @await Html.PartialAsync("_ProductCartPartial",Model) 
+    </div>
+</main>
+

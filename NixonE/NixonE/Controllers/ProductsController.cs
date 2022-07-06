@@ -18,13 +18,14 @@ namespace NixonE.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> IndexAsync(int? id,int? styleId,int? tagId,int? colorid,int? useId)
+        public async Task<IActionResult> IndexAsync(int? id,int? styleId,int? tagId,int? colorid,int? useId, int? mainId)
         {
             if (id == null) return NotFound();
             ProductsVM productsVm = new ProductsVM
             {
                 Products = await _context.Products
                 .Where(p => p.CategoryId == id && !p.IsDeleted)
+                .Where(p=> mainId == null || p.Category.ParentId == mainId)
                 //.Where(t => max == null || t.Price <= max && t.Price > min)
                 .Include(p => p.ProductImages)
                 .Include(p => p.Category)
@@ -45,10 +46,48 @@ namespace NixonE.Controllers
             };
             if (productsVm.Category == null) return NotFound();
 
-            int higest = (int)productsVm.Products.Max(p => p.Price);
-            int min = (int)productsVm.Products.Min(p => p.Price);
-            var p = productsVm.Products.OrderBy(item => Math.Min(higest - item.Price, item.Price - min));
             return View(productsVm);
+        }
+
+        public async Task<IActionResult> Orderby(int? id, int? styleId, int? tagId, int? colorid, int? useId)
+        {
+            if (id == null) return NotFound();
+            IEnumerable<Product> products = await _context.Products.Include(p => p.ProductImages)
+                .Where(p => p.CategoryId == id && !p.IsDeleted)
+                .Include(p => p.Category)
+                .Include(p => p.Tag)
+                .Include(p => p.Style)
+                .Include(p => p.Use)
+                .Include(p => p.ProductColors).ThenInclude(p => p.Colour)
+                .Where(p => styleId == null || p.StyleId == styleId)
+                .Where(p => tagId == null || p.TagId == tagId)
+                .Where(p => useId == null || p.UseId == useId)
+                .Where(p => colorid == null || p.ProductColors.Any(c => c.ColourId == colorid))
+                .OrderBy(p=>p.Price)
+                .ToListAsync();
+
+            return PartialView("_PriceSortPartial", products);
+        }
+        public async Task<IActionResult> OrderbyDescending(int? id, int? styleId, int? tagId, int? colorid, int? useId)
+        {
+            if (id == null) return NotFound();
+            IEnumerable<Product> products = await _context.Products.Include(p => p.ProductImages)
+                .Where(p => p.CategoryId == id && !p.IsDeleted)
+                .Include(p => p.Category)
+                .Include(p => p.Tag)
+                .Include(p => p.Style)
+                .Include(p => p.Use)
+                .Include(p => p.ProductColors).ThenInclude(p => p.Colour)
+                .Where(p => styleId == null || p.StyleId == styleId)
+                .Where(p => tagId == null || p.TagId == tagId)
+                .Where(p => useId == null || p.UseId == useId)
+                .Where(p => colorid == null || p.ProductColors.Any(c => c.ColourId == colorid))
+                .OrderByDescending(p => p.Price)
+                .ToListAsync();
+
+            if (products == null) return NotFound();
+
+            return PartialView("_PriceSortPartial", products);
         }
 
     }

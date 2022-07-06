@@ -19,7 +19,7 @@
                                 @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
                                 {
                                     <li>
-                                        <a asp-route-id="@item.Tag.Id">
+                                        <a asp-controller="Products" asp-action="Index" asp-route-tagId="@item.Tag.Id" asp-route-id="@item.CategoryId">
                                             @item.Tag.Name
                                         </a>
                                     </li>
@@ -39,7 +39,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Style.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
                                                     @item.Style.Name
                                                 </a>
                                             </li>
@@ -52,7 +52,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Use.Id">
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
                                                     @item.Use.Name
                                                 </a>
                                             </li>

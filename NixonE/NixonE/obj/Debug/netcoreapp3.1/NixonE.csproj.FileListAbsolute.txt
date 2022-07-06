@@ -349,3 +349,12 @@ C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\De
 C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OfferHeroes\Update.cshtml.g.cs
 C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HeaderMobile\Default.cshtml.g.cs
 C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PriceSortPartial.cshtml.g.cs
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\ProductDetail\Index.cshtml.g.cs
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BasketPartial.cshtml.g.cs
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductCountPartial.cshtml.g.cs
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\ShoppingCart\Index.cshtml.g.cs
+C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductCartPartial.cshtml.g.cs

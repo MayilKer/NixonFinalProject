@@ -1,0 +1,172 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Product";
+}
+
+<main role="main" id="ProductPage">
+    <div class="layout-main-content">
+        <div class="section-product">
+            <div class="container justify-content-center pb-4 pt-4">
+                <div class="row justify-content-center">
+                    <div class="col col-xl-10 mb-5">
+                        <nav class="breadcrumbs" role="navigation" aria-label="breadcrumb">
+                            <div class="breadcrumbs__crumb">
+                                <a asp-controller="Home" asp-action="Index" title="Home">Home</a>
+                                <span>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </span>
+                            </div>
+                            <div class="breadcrumbs__crumb">
+                                <a href="./products.html" title="Man's Watches">
+                                    @Model.Category?.Parent.Name
+                                </a>
+                                <span>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </span>
+                            </div>
+                            <div class="breadcrumbs_crumb">
+                                @Model.Category.Name
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="product-main-info">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 order-lg-2 col-md-8 col-lg-4">
+                            <div class="product-gallery">
+                                <div class="product-gallery-main row justify-content-center">
+                                    <div class="product-gallery-slide col-lg-8">
+                                        <div class="slider-for">
+                                            @foreach (ProductImages item in Model.ProductImages)
+                                            {
+                                                <div class="product-1">
+                                                    <img src="~/dist/images/products/@item.Image" alt="">
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="slider-nav">
+                                            @foreach (ProductImages items in Model.ProductImages)
+                                            {
+                                                <div class="product-2" style="width: 56px;">
+                                                    <img src="~/dist/images/products/@items.Image" alt="">
+                                                </div>
+                                            }
+                                        </div>
+                                        <button class="prev">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </button>
+                                        <button class="next">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 order-lg-3 col-md-8 col-lg-4 col-xl-3">
+                            <div class="d-lg-none">
+                                <h1>
+                                    @Model.Name
+                                </h1>
+                                <div class="product-price__wrap">
+                                    <div class="large">
+                                        <span class="product-price">
+                                            $@Model.Price.ToString("F2")
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <form method="get" id="basketform" asp-controller="ProductDetail" asp-action="AddBasket" asp-route-id="@Model.Id">
+                                <div class="product-form-selectors">
+                                    <div class="product-form-selector">
+                                        <div class="product-form-selector_header d-flex justify-content-between">
+                                        </div>
+                                        <div class="product-form-selector_content">
+                                            <div class="row gy-2">
+                                                <select class="form-select" name="colorId" id="colorId" aria-label="Default select example">
+                                                    @foreach (ProductColors item in Model.ProductColors)
+                                                    {
+                                                        <option selected value="@item.ColourId">@item.Colour.Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-none d-lg-block">
+                                    <div class="row align-items-center no-gutters product-price_wrap">
+                                        <div class="large">
+                                            <span class="product-price">
+                                                $@Model.Price.ToString("F2")
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-form_add-to-cart mt-3">
+                                    <button class="btn addToBasket" type="submit">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-12 order-lg-1 col-md-8 col-lg-4 col-xl-3">
+                            <div class="product-descrption">
+                                <div class="d-none d-lg-block">
+                                    <div class="mb-3">
+                                        <div class="badge-wrapper"></div>
+                                    </div>
+                                    <div class="product-detail_title">
+                                        @Model.Name
+                                    </div>
+                                </div>
+                                <div class="product-detail_description">
+                                    @Model.Description
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="section-specifications">
+            <div class="pro-spec">
+                <div class="container">
+                    <div class="specs col-12 col-md-8 col-lg-12 mx-auto">
+                        <div class="specs-header">
+                            <a data-bs-toggle="collapse" href="#specs" role="button" aria-expanded="false" aria-controls="specs">
+                                <h3 class="specs__title">
+                                    Full Specifications
+                                    <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                        <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                    </svg>
+                                </h3>
+                            </a>
+                        </div>
+                        <div id="specs" class="collapse specs__content">
+                            <div class="specs-list">
+                                @foreach (ProductFeatures item in Model.ProductFeatures)
+                                {
+                                    <div class="specs-list_item">
+                                        <div class="specs-list_item-title">
+                                            @item.Key
+                                        </div>
+                                        <div class="specs-list_item-content">
+                                            @item.Value
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section Scripts{ 
+<script src="~/dist/js/product-Slider.js"></script>
+}
+

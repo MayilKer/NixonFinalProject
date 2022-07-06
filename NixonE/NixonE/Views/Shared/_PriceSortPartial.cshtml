@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Product>
+@foreach (Product item in Model.Where(p => p.Availability == true))
+{
+    <li class="product-list-item col-6 col-sm-4 col-md-3">
+        <div class="product-title">
+            <div class="product-title-contents">
+                <div class="product-title-gallery">
+                    <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
+                        <div class="product-title-gallery-image">
+                            <img src="~/dist/images/products/@item.MainImage" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="product-title-info">
+                    <div class="product-title-swatches mb-2 d-lg-flex align-items-center justify-content-center">
+                        <div class="dots">
+                            @foreach (ProductImages img in item.ProductImages)
+                            {
+                                <div class="dot dot_image image-ch">
+                                    <div class="dot-inner">
+                                        <img style="width: 100%;" src="~/dist/images/products/@img.Image" alt="">
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <h3 class="product-title-info_titles">
+                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
+                            @item.Name
+                        </a>
+                    </h3>
+                    <div class="product-title-info_price">
+                        <div>$@item.Price.ToString("F2")</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+}

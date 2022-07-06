@@ -2,6 +2,7 @@
 @{ 
     Dictionary<string, string> setting = await layoutService.GetSettingAsync();
     Banner banner = await layoutService.GetBannerAsync();
+    List<BasketVM> count = await layoutService.GetBasket();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -48,82 +49,7 @@
         <!-- Shopping Cart Start -->
 
         <div id="shoppingCart">
-            <div id="shop-cart" class="cart-container">
-                <form action="" class="cart-form">
-                    <div class="cart-header">
-                        <p class="cart-title">
-                            Shopping Cart
-                        </p>
-                        <a id="close-cart" href="#" class="cart-close">
-                            <svg width="20" height="21" viewbox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M19 1.36328L1 19.3633" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
-                                <path d="M19 19.3633L1 1.36328" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="cart-body">
-                        <p class="cart-item-count">
-                            1 item
-                        </p>
-                        <ul class="cart_list">
-                            <li class="cart_list_item">
-                                <div class="cart_item_img">
-                                    <img src="~/dist/images/products/C3035-000-view1_200x.png" alt="">
-                                </div>
-                                <div class="cart_item_info">
-                                    <a class="cart_item_title" href="">
-                                        <h6>
-                                            Escape 45L Duffel - Black
-                                        </h6>
-                                    </a>
-                                    <div class="cart_item_information">
-                                        <ul class="cart_item_options">
-                                            <li>QTY: 1</li>
-                                            <li>Color: Black</li>
-                                        </ul>
-                                        <p class="cart_item_price">
-                                            $110.00
-                                        </p>
-                                    </div>
-                                    <a href="" class="cart_item_remove">
-                                        <svg width="11" height="11" viewbox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10 1.18164L1 10.1816" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
-                                            <path d="M10 10.1816L1 1.18164" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="cart-pre-footer">
-                            <div class="footer-row cart-footer-text">
-                                Taxes and shipping are calculated at Checkout
-                            </div>
-                            <div class="footer-row">
-                                <h6>
-                                    Subtotal: $110.00
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-footer">
-                        <div class="cart-footer-top">
-
-                        </div>
-                        <div class="cart-footer-bottom">
-                            <div class="cart-footer-row">
-                                <a class="btn btn-block btn-first" href="#">
-                                    View Cart
-                                </a>
-                            </div>
-                            <div class="cart-footer-row">
-                                <a class="btn btn-block btn-second" href="#">
-                                    Continue Shopping
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            @await Html.PartialAsync("_BasketPartial", await layoutService.GetBasket())
         </div>
 
         <!-- Shopping Cart End -->
@@ -194,14 +120,10 @@
                                     </div>
                                 </li>
                                 <li>
+                                    <form class="d-none" id="countRef" style="visibility:hidden" asp-controller="ProductDetail" asp-action="GetBasketCount" method="post"></form>
                                     <a class="cart-open" href="#">
-                                        <div class="header-cart">
-                                            <span class="cart-count">2</span>
-                                            <svg width="22" height="17" viewbox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.26711 2H0V0H4.73289L7.73289 9.5H17.7192L19.7192 1.5H22V3.5H21.2808L19.2808 11.5H6.26711L3.26711 2Z" fill="black"></path>
-                                                <circle cx="8" cy="14.5" r="2" fill="black"></circle>
-                                                <circle cx="18" cy="14.5" r="2" fill="black"></circle>
-                                            </svg>
+                                        <div class="header-cart" id="proCountUp">
+                                            @await Html.PartialAsync("_ProductCountPartial",count)
                                         </div>
                                     </a>
                                 </li>
@@ -609,6 +531,7 @@
     <script src="~/dist/js/homeSlider.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" asp-append-version="true" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="~/dist/js/cart.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", false)
 
 </body>
 </html>

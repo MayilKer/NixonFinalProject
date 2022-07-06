@@ -54,8 +54,15 @@ using NixonE.ViewModels.Products;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\_ViewImports.cshtml"
+using NixonE.ViewModels.Basket;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9364909dce12319f746a34eb1902f79bdd552830", @"/Views/Shared/Components/HeaderMobile/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"12a9f5d7e224c8a01042accc0f81846444060ee9", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4a38073f3fd208a3d5b21b1776dc0c86aa283f87", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_HeaderMobile_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<HeaderVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("expandable-list_item-title"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -137,7 +144,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd5528307478", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd5528307680", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 48 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -218,7 +225,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283012619", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283012821", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 71 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -299,7 +306,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283017764", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283017966", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 94 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -415,7 +422,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283024536", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283024738", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 150 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -496,7 +503,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283029697", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283029899", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 173 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -577,7 +584,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283034861", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283035063", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 196 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -693,7 +700,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283041597", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283041799", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 252 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -774,7 +781,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283046742", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283046944", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 275 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -855,7 +862,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283051890", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283052092", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 298 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -971,7 +978,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283058655", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283058857", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 354 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -1052,7 +1059,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283063814", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283064016", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 377 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -1133,7 +1140,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283068981", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283069183", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 400 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -1249,7 +1256,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283075736", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283075938", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 456 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -1330,7 +1337,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283080885", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283081087", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 479 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -1504,7 +1511,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283091372", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283091574", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 590 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"
@@ -1585,7 +1592,7 @@ using NixonE.ViewModels.Products;
 #line hidden
 #nullable disable
             WriteLiteral("                                <div class=\"expandable-list__item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283096527", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9364909dce12319f746a34eb1902f79bdd55283096729", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 613 "C:\Program Files (x86)\Рабочий стол\NixonProject\NixonE\NixonE\Views\Shared\Components\HeaderMobile\Default.cshtml"

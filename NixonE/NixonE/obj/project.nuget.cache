@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ClC8JHyWFRF2llPKI4vrhO+H/PhLtd0nMlLG2UCzLIjgitMzi0+w7JTOHwIh+P0UIM7qBgdWgyO6iXNItdCvXw==",
+  "dgSpecHash": "j7TrTxBEGVjBmsVEAJh6BP8a7Fz2P9Qy3R+BZm0i2YOhSTggOkQGKlm+lFu9J3O+Yv0wGVQUE3KlKlrhy57yWg==",
   "success": true,
   "projectFilePath": "C:\\Program Files (x86)\\Рабочий стол\\NixonProject\\NixonE\\NixonE\\NixonE.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.26\\microsoft.aspnetcore.cryptography.internal.3.1.26.nupkg.sha512",
+    "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.26\\microsoft.aspnetcore.cryptography.keyderivation.3.1.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.26\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.26\\microsoft.aspnetcore.jsonpatch.3.1.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.26\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -34,6 +37,8 @@
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.26\\microsoft.extensions.configuration.binder.3.1.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.26\\microsoft.extensions.dependencyinjection.3.1.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.26\\microsoft.extensions.dependencyinjection.abstractions.3.1.26.nupkg.sha512",
+    "C:\\Users\\kerim\\.nuget\\packages\\microsoft.extensions.identity.core\\3.1.26\\microsoft.extensions.identity.core.3.1.26.nupkg.sha512",
+    "C:\\Users\\kerim\\.nuget\\packages\\microsoft.extensions.identity.stores\\3.1.26\\microsoft.extensions.identity.stores.3.1.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.extensions.logging\\3.1.26\\microsoft.extensions.logging.3.1.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.26\\microsoft.extensions.logging.abstractions.3.1.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.extensions.options\\3.1.26\\microsoft.extensions.options.3.1.26.nupkg.sha512",

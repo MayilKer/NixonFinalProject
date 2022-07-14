@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NixonE.DAL;
+using NixonE.Models;
 using NixonE.Services;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,22 @@ namespace NixonE
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DConnection"));
             });
+
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+             {
+                 options.Password.RequireDigit = true;
+                 options.Password.RequiredLength = 8;
+                 options.Password.RequireLowercase = true;
+                 options.Password.RequireUppercase = true;
+                 options.Password.RequireNonAlphanumeric = true;
+
+                 options.User.RequireUniqueEmail = true;
+
+                 options.Lockout.AllowedForNewUsers = true;
+                 options.Lockout.MaxFailedAccessAttempts = 10;
+                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(20);
+             }).AddDefaultTokenProviders().AddEntityFrameworkStores<NixonDbContext>();
+
             services.AddScoped<LayoutService>();
             services.AddHttpContextAccessor();
         }
@@ -41,9 +59,15 @@ namespace NixonE
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseStatusCodePagesWithRedirects("/ErrorPage/{0}");
+            }
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

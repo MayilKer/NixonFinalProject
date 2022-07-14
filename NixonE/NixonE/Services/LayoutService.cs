@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using NixonE.DAL;
@@ -35,7 +36,7 @@ namespace NixonE.Services
 
             List<BasketVM> basketVMs = null;
 
-            if (cookieBasket != null)
+            if (!string.IsNullOrWhiteSpace(cookieBasket))
             {
                 basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(cookieBasket);
 

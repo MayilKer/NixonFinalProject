@@ -1,0 +1,81 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Order Detail</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card" style="width: 100%;">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Ordered Count</th>
+                            <th>Stocke Count</th>
+                            <th>Total Price</th>
+                            <th>Adress</th>
+                            <th>City</th>
+                            <th>Zip-Code</th>
+                            <th>Colour</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrdersItems)
+                        {
+                        <tr>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Product.Price</td>
+                            <td>@item.Count</td>
+                            <td>@item.Product.Count</td>
+                            <td>@(item.Count * item.Product.Price)</td>
+                            <td>@item.Order.AppUser?.Adress</td>
+                            <td>@item.Order.AppUser?.City</td>
+                            <td>@item.Order.AppUser?.ZipCode</td>
+                            <td>@item?.Country</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form method="post">
+                <div class="form-group">
+                    <label for="OrderStatus"></label>
+                    <select class="form-control" id="orderStatus" name="OrderStatus">
+                        <option value="">Choose...</option>
+                        @foreach (var item in Enum.GetValues(typeof(OrderStatus)))
+                        {
+                            if (Model.Status == (OrderStatus)item)
+                            {
+                                <option selected value="@((int)item)">@item</option>
+                            }
+                            else
+                            {
+                                <option value="@((int)item)">@item</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12" style=" margin-top: 24px; margin-left: 5px; }">
+            <a class="btn btn-primary" asp-action="Index" asp-route-page="@ViewBag.PageIndex">Go To List</a>
+        </div>
+    </div>
+</div>
+

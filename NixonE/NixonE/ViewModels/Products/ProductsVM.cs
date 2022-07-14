@@ -14,5 +14,6 @@ namespace NixonE.ViewModels.Products
         public Category Category { get; set; }
         public IEnumerable<ProductColors> ProductColors { get; set; }
         public IEnumerable<Use> Uses { get; set; }
+        public IEnumerable<Colour> Colours { get; set; }
     }
 }

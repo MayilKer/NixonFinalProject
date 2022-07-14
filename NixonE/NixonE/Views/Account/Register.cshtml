@@ -1,0 +1,36 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+<main role="main" id="loginPage">
+    <div class="layout-main-content">
+        <div class="customer-login">
+            <div class="layout-content-wrapper pt-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="form-success alert alert-success text-center hide">
+                                We've sent you an email with a link to update your password.
+                            </div>
+                            <div class="row justify-content-md-around">
+                                <div class="col-lg-6">
+                                    <h2>
+                                        Create Account
+                                    </h2>
+                                    <div class="p2">
+                                        <p>
+                                            Register for quick checkout, order status, purchase history, wishlists, and more.
+                                        </p>
+                                    </div>
+                                    @await Html.PartialAsync("_RegisterPartial", Model)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

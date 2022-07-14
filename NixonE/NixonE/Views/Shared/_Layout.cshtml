@@ -1,8 +1,15 @@
 ﻿@inject LayoutService layoutService
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUser> userManager
 @{ 
     Dictionary<string, string> setting = await layoutService.GetSettingAsync();
     Banner banner = await layoutService.GetBannerAsync();
     List<BasketVM> count = await layoutService.GetBasket();
+    AppUser appUser = null;
+    if (User.Identity.IsAuthenticated)
+    {
+        appUser = userManager.Users.FirstOrDefault(a => a.UserName == User.Identity.Name && !a.IsAdmin);
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +18,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/png" href="//cdn.shopify.com/s/files/1/0541/0272/0705/files/NIXON_WINGS_180x180-01_32x32.png?v=1639159034" />
     <link rel="stylesheet" href="~/dist/slick/slick.css">
     <link rel="stylesheet" href="~/dist/slick/slick-theme.css">
     <link rel="stylesheet" href="~/dist/css/style.css" />
     <link rel="stylesheet" href="~/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        ol {
+            list-style: none;
+            padding: 0;
+            background: black;
+        }
+
+            ol li {
+                padding: 0 !important;
+            }
+
+                ol li #prod-search-list-link {
+                    color: white !important;
+                }
+    </style>
 </head>
 <body>
 
@@ -49,7 +72,10 @@
         <!-- Shopping Cart Start -->
 
         <div id="shoppingCart">
-            @await Html.PartialAsync("_BasketPartial", await layoutService.GetBasket())
+            <div id="shop-cart" class="cart-container">
+                @await Html.PartialAsync("_BasketPartial", await layoutService.GetBasket())
+            </div>
+            
         </div>
 
         <!-- Shopping Cart End -->
@@ -63,12 +89,19 @@
                             <span class="input-group-text border-0" id="search-addon">
                                 <i class="fas fa-search"></i>
                             </span>
-                            <input type="search" class="form-control inps" placeholder="What can we help you find?" aria-label="Search" aria-describedby="search-addon" />
+                            <form method="get">
+                                <input name="query" type="search" class="form-control inps input-search" placeholder="What can we help you find?" aria-label="Search" aria-describedby="search-addon">
+                                <ol style="position:absolute; top:42px;" class="prod-search-list">
+                                </ol>
+                            </form>
+
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="logo-img">
-                            <img src="~/dist/images/main_logo/@setting.GetValueOrDefault("Logo")" alt="">
+                            <a asp-controller="Home" asp-action="Index">
+                                <img src="~/dist/images/main_logo/@setting.GetValueOrDefault("Logo")" alt="">
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -79,45 +112,81 @@
                                     <span class="flag-text">US</span>
                                 </li>
                                 <li>
-                                    <a href="#">Order Status</a>
-                                </li>
-                                <li>
-                                    <a href="#">Find a Store</a>
+                                    <a asp-controller="MyAccount" asp-action="GetOrders">Order Status</a>
                                 </li>
                                 <li class="register-dropdown">
-                                    <a href="#">Sign in</a>
-                                    <i class="fa-solid fa-chevron-down angle-down"></i>
-                                    <div class="account-dropdown">
-                                        <div class="header-dropdown">
-                                            <h6>Login for faster checkout</h6>
-                                        </div>
-                                        <div class="middle-dropdown">
-                                            <a href="#" class="btn btn-block">Login</a>
-                                            <div class="bottom-dropdown">
-                                                Don't have an account?
-                                                <a href="#">Sign up</a>
+                                    @if (appUser == null)
+                                    {
+                                        <a asp-controller="Account" asp-action="Login">Sign in</a>
+                                        <i class="fa-solid fa-chevron-down angle-down"></i>
+                                        <div class="account-dropdown">
+                                            <div class="header-dropdown">
+                                                <h6>Login for faster checkout</h6>
+                                            </div>
+                                            <div class="middle-dropdown">
+                                                <a asp-controller="Account" asp-action="Login" class="btn btn-block">Login</a>
+                                                <div class="bottom-dropdown">
+                                                    Don't have an account?
+                                                    <a asp-controller="Account" asp-action="Register">Sign up</a>
+                                                </div>
+                                            </div>
+                                            <div class="account-login-dropdown d-none">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            My Account
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            Orders
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            Sign Out
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
-                                        <div class="account-login-dropdown d-none">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">
-                                                        My Account
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        Orders
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        Sign Out
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                    }
+                                    else
+                                    {
+                                        <a>@User.Identity.Name</a>
+                                        <i class="fa-solid fa-chevron-down angle-down"></i>
+                                        <div class="account-dropdown">
+                                            <div class="header-dropdown d-none">
+                                                <h6>Login for faster checkout</h6>
+                                            </div>
+                                            <div class="middle-dropdown d-none">
+                                                <a href="#" class="btn btn-block">Login</a>
+                                                <div class="bottom-dropdown">
+                                                    Don't have an account?
+                                                    <a asp-controller="Account" asp-action="Register">Sign up</a>
+                                                </div>
+                                            </div>
+                                            <div class="account-login-dropdown">
+                                                <ul>
+                                                    <li>
+                                                        <a asp-controller="MyAccount" asp-action="Index" asp-route-id="@appUser.Id">
+                                                            My Account
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="MyAccount" asp-action="GetOrders">
+                                                            Orders
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="Account" asp-action="LogOut">
+                                                            Sign Out
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
                                 </li>
                                 <li>
                                     <form class="d-none" id="countRef" style="visibility:hidden" asp-controller="ProductDetail" asp-action="GetBasketCount" method="post"></form>
@@ -189,13 +258,9 @@
                             </svg>
                         </label>
                         <a class="cart-open" href="#">
-                            <div class="mobile-right">
-                                <span class="mobile-cart-count">2</span>
-                                <svg width="22" height="17" viewbox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.26711 2H0V0H4.73289L7.73289 9.5H17.7192L19.7192 1.5H22V3.5H21.2808L19.2808 11.5H6.26711L3.26711 2Z" fill="black"></path>
-                                    <circle cx="8" cy="14.5" r="2" fill="black"></circle>
-                                    <circle cx="18" cy="14.5" r="2" fill="black"></circle>
-                                </svg>
+                            <form class="d-none" id="countRefMob" style="visibility:hidden" asp-controller="ProductDetail" asp-action="GetBasketCountMob" method="post"></form>
+                            <div class="mobile-right mob-pro-count">
+                                @await Html.PartialAsync("_ProductCountMobilePartial", count)
                             </div>
                         </a>
                     </li>
@@ -204,10 +269,12 @@
             <div class="mobile-search-wrapper">
                 <div class="search-content">
                     <div class="search-mob-inner">
-                        <form class="mob-search-form">
+                        <form method="get" class="mob-search-form">
                             <div class="mob-input">
                                 <svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C3.79086 2 2 3.79086 2 6C2 8.20914 3.79086 10 6 10C8.20914 10 10 8.20914 10 6C10 3.79086 8.20914 2 6 2ZM0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6Z" fill="black"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M10.2072 8.29297L14.7072 12.793L13.293 14.2072L8.79297 9.70718L10.2072 8.29297Z" fill="black"></path></svg>
-                                <input class="form-control reds" type="search">
+                                <input name="query" class="form-control input-search reds" type="search">
+                                <ol class="prod-search-list">
+                                </ol>
                             </div>
                         </form>
                     </div>
@@ -236,21 +303,32 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="">
+                                    @if (appUser == null)
+                                    {
+                                        <li>
+                                            <a asp-controller="Account" asp-action="Login">
+                                                Sign In
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Account" asp-action="Register">
+                                                Register Now
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a asp-controller="Account" asp-action="LogOut">
+                                                Sign Out
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="MyAccount" asp-action="GetOrders">
                                             Order Status
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Find a Store
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Sign In
-                                        </a>
-                                    </li>
+                                            </a>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -349,32 +427,32 @@
                         </p>
                         <ul class="footer-menu_content">
                             <li>
-                                <a href="">
+                                <a asp-controller="AboutUs" asp-action="Index">
                                     About Us
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="AboutUs" asp-action="Index">
                                     Responsibility
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="AboutUs" asp-action="Index">
                                     Team
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="AboutUs" asp-action="Index">
                                     Blog
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="AboutUs" asp-action="Index">
                                     Work Here
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="AboutUs" asp-action="Index">
                                     Affiliate
                                 </a>
                             </li>
@@ -386,27 +464,27 @@
                         </p>
                         <ul class="footer-menu_content">
                             <li>
-                                <a href="">
+                                <a asp-controller="ContactUs" asp-action="Index">
                                     Customer Service
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="ContactUs" asp-action="Index">
                                     Need a Repair
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="ContactUs" asp-action="Index">
                                     Warranty
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="ContactUs" asp-action="Index">
                                     FAQs
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="ContactUs" asp-action="Index">
                                     Contact Us
                                 </a>
                             </li>
@@ -418,17 +496,17 @@
                         </p>
                         <ul class="footer-menu_content">
                             <li>
-                                <a href="">
+                                <a asp-controller="AboutUs" asp-action="Index">
                                     Shipping
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="AboutUs" asp-action="Index">
                                     Returns
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a asp-controller="AboutUs" asp-action="Index">
                                     Promotions
                                 </a>
                             </li>

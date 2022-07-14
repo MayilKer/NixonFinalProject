@@ -39,10 +39,10 @@ namespace NixonE.Controllers
                 .Where(p => colorid == null || p.ProductColors.Any(c=>c.ColourId == colorid))
                 .ToListAsync(),
                 Styles = await _context.Styles.Where(p => p.Products.Any(p => p.CategoryId == id) && !p.IsDeleted).ToListAsync(),
-                Category = await _context.Categories.Include(p=>p.Parent).FirstOrDefaultAsync(c=>c.Id == id && !c.IsDeleted),
+                Category = await _context.Categories.Include(p => p.Parent).FirstOrDefaultAsync(c => c.Id == id && !c.IsDeleted),
                 Tags = await _context.Tags.Where(p => p.Products.Any(p => p.CategoryId == id) && !p.IsDeleted).ToListAsync(),
-                Uses = await _context.Uses.Where(u=>u.Products.Any(p=>p.CategoryId == id) && !u.IsDeleted).ToListAsync(),
-                ProductColors = await _context.ProductColors.Include(c=>c.Colour).Include(p=>p.Product).Where(p=>p.Product.CategoryId == id && !p.Colour.IsDeleted).ToListAsync()
+                Uses = await _context.Uses.Where(u=>u.Products.Any(p=> p.CategoryId == id) && !u.IsDeleted).ToListAsync(),
+                Colours = await _context.Colors.Where(p=>p.ProductColors.Any(c=> c.Product.CategoryId == id)).ToListAsync()
             };
             if (productsVm.Category == null) return NotFound();
 
@@ -65,6 +65,8 @@ namespace NixonE.Controllers
                 .Where(p => colorid == null || p.ProductColors.Any(c => c.ColourId == colorid))
                 .OrderBy(p=>p.Price)
                 .ToListAsync();
+
+            if (products == null) return NotFound();
 
             return PartialView("_PriceSortPartial", products);
         }
@@ -89,6 +91,7 @@ namespace NixonE.Controllers
 
             return PartialView("_PriceSortPartial", products);
         }
+
 
     }
 }

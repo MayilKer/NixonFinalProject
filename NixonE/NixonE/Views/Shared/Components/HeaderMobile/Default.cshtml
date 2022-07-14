@@ -24,9 +24,12 @@
                         </a>
                     </div>
                     <div class="expandable-list__item sublinks">
-                        <a href="#">
-                            All Men's Watches
-                        </a>
+                        @foreach (Category item in Model.categories.Where(p => p.Name == "Men's Watches"))
+                        {
+                            <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+                                @item.Name
+                            </a>
+                        }
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
@@ -41,11 +44,11 @@
                     </div>
                     <div id="mobile-primary-menu-2-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                            @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Men's Watches")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Tag.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-tagId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -64,11 +67,11 @@
                     </div>
                     <div id="mobile-primary-menu-3-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                            @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Men's Watches")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Style.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -87,11 +90,11 @@
                     </div>
                     <div id="mobile-primary-menu-4-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                            @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Men's Watches")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.UseId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Use.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -126,9 +129,12 @@
                         </a>
                     </div>
                     <div class="expandable-list__item sublinks">
-                        <a href="#">
-                            All Women's Watches
-                        </a>
+                        @foreach (Category item in Model.categories.Where(p => p.Name == "Women's Watches"))
+                        {
+                            <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+                                @item.Name
+                            </a>
+                        }
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-women-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
@@ -143,11 +149,11 @@
                     </div>
                     <div id="mobile-primary-menu-women-2-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                            @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Women's Watches")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Tag.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-tagId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault() class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -166,11 +172,11 @@
                     </div>
                     <div id="mobile-primary-menu-women-3-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                            @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Women's Watches")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Style.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -189,11 +195,11 @@
                     </div>
                     <div id="mobile-primary-menu-women-4-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                            @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Women's Watches")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.UseId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Use.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -228,9 +234,12 @@
                         </a>
                     </div>
                     <div class="expandable-list__item sublinks">
-                        <a href="#">
-                            All Bags
-                        </a>
+                        @foreach (Category item in Model.categories.Where(p => p.Name == "Bag"))
+                        {
+                            <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+                                @item.Name
+                            </a>
+                        }
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-bag-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
@@ -245,11 +254,11 @@
                     </div>
                     <div id="mobile-primary-menu-bag-2-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                            @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Bag")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Tag.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-tagId="@item.Id" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -268,11 +277,11 @@
                     </div>
                     <div id="mobile-primary-menu-bag-3-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                            @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Bag")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Style.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -291,11 +300,11 @@
                     </div>
                     <div id="mobile-primary-menu-bag-4-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                            @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Bag")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.UseId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Use.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -330,9 +339,12 @@
                         </a>
                     </div>
                     <div class="expandable-list__item sublinks">
-                        <a href="#">
-                            All Headwear
-                        </a>
+                        @foreach (Category item in Model.categories.Where(p => p.Name == "Headwears"))
+                        {
+                            <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+                                @item.Name
+                            </a>
+                        }
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-headwear-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
@@ -347,11 +359,11 @@
                     </div>
                     <div id="mobile-primary-menu-headwear-2-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                            @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Headwears")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Tag.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-tagId="@item.Id" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -370,11 +382,11 @@
                     </div>
                     <div id="mobile-primary-menu-headwear-3-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                            @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Headwears")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Style.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -382,7 +394,7 @@
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-headwear-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Styles
+                            Useage
                             <span>
                                 <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
@@ -393,11 +405,11 @@
                     </div>
                     <div id="mobile-primary-menu-headwear-4-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                            @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Headwears")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Style.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -432,9 +444,12 @@
                         </a>
                     </div>
                     <div class="expandable-list__item sublinks">
-                        <a href="#">
-                            All Clothing
-                        </a>
+                        @foreach (Category item in Model.categories.Where(p => p.Name == "Clothing"))
+                        {
+                            <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+                                @item.Name
+                            </a>
+                        }
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-clo-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
@@ -449,11 +464,11 @@
                     </div>
                     <div id="mobile-primary-menu-clo-2-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                            @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Clothing")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Tag.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-tagId="@item.Id" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -472,69 +487,14 @@
                     </div>
                     <div id="mobile-primary-menu-clo-3-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                            @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Clothing")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Style.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
-                        </div>
-                    </div>
-                    <div class="expandable-list__item sublinks">
-                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-clo-4-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Accessories
-                            <span>
-                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                </svg>
-                            </span>
-                        </a>
-                    </div>
-                    <div id="mobile-primary-menu-clo-4-sub" class="collapse">
-                        <div class="expandable-list_body">
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Wallets
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Belts
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Other Accessories
-                                </a>
-                            </div>
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Face Masks
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="expandable-list__item sublinks">
-                        <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-clo-5-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
-                            Trending
-                            <span>
-                                <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 0V10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                    <path d="M10 5H0" stroke="black" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                </svg>
-                            </span>
-                        </a>
-                    </div>
-                    <div id="mobile-primary-menu-clo-5-sub" class="collapse">
-                        <div class="expandable-list_body">
-                            <div class="expandable-list__item">
-                                <a href="#" class="expandable-list_item-title">
-                                    Sustainable Clothing & Accessories
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -566,9 +526,12 @@
                         </a>
                     </div>
                     <div class="expandable-list__item sublinks">
-                        <a href="#">
-                            All Accessories
-                        </a>
+                        @foreach (Category item in Model.categories.Where(p => p.Name == "Accessories"))
+                        {
+                            <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Id">
+                                @item.Name
+                            </a>
+                        }
                     </div>
                     <div class="expandable-list__item sublinks">
                         <a class="expandable-list__header-title rotate plus-minus-rotate-closed" href="#mobile-primary-menu-band-2-sub" data-bs-toggle="collapse" aria-controls="mobile-primary-menu-2-sub" aria-expanded="false">
@@ -583,11 +546,11 @@
                     </div>
                     <div id="mobile-primary-menu-band-2-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                            @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Accessories")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.TagId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Tag.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-tagId="@item.Id" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }
@@ -606,11 +569,11 @@
                     </div>
                     <div id="mobile-primary-menu-band-3-sub" class="collapse">
                         <div class="expandable-list_body">
-                            @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                            @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Accessories")))
                             {
                                 <div class="expandable-list__item">
-                                    <a asp-route-id="@item.StyleId" asp-route-catid="@item.CategoryId" class="expandable-list_item-title">
-                                        @item.Style.Name
+                                    <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" class="expandable-list_item-title">
+                                        @item.Name
                                     </a>
                                 </div>
                             }

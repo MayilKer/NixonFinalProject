@@ -11,5 +11,7 @@ namespace NixonE.Models
         [Required(ErrorMessage = "Renq mutleq olamlidir"), StringLength(50)]
         public string Name { get; set; }
         public List<ProductColors> ProductColors { get; set; }
+        public IEnumerable<Basket> Baskets { get; set; }
+        public IEnumerable<OrderItem> orderItems { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NixonE.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NixonE.DAL
 {
-    public class NixonDbContext : DbContext
+    public class NixonDbContext : IdentityDbContext<AppUser>
     {
         public NixonDbContext(DbContextOptions<NixonDbContext> options) : base(options){ }
         public DbSet<Banner> Banners { get; set; }
@@ -35,5 +36,10 @@ namespace NixonE.DAL
         public DbSet<ProductFeatures> ProductFeatures { get; set; }
         public DbSet<MainHero> MainHeroes { get; set; }
         public DbSet<OfferHeroes> OfferHeroes { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }

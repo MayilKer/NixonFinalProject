@@ -21,7 +21,7 @@
                         </p>
                     </div>
                     <div class="hero-btn">
-                        <a href="" class="btn btn-light">
+                        <a asp-controller="Products" asp-action="Index" asp-route-id="14" class="btn btn-light">
                             Shop Now
                         </a>
                     </div>
@@ -78,9 +78,6 @@
                         <h3 class="header-left">
                             You Might Like
                         </h3>
-                        <a href="#" class="header-right">
-                            Shop All
-                        </a>
                     </div>
                     <div class="autoplay autoplay-sm slideshow">
                         @foreach (Product item in Model.products)
@@ -89,7 +86,7 @@
                                 <div class="product-title">
                                     <div class="product-title-contents">
                                         <div class="product-title-gallery">
-                                            <a href="#">
+                                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                                 <div class="product-title-gallery-image">
                                                     <img src="~/dist/images/products/@item.MainImage" alt="">
                                                 </div>
@@ -97,8 +94,8 @@
                                         </div>
                                         <div class="product-title-info">
                                             <div class="product-title-swatches">
-                                                <div class="dots">
-                                                    @foreach (ProductImages img in item.ProductImages)
+                                                <div style="width:120px" class="dots">
+                                                    @foreach (ProductImages img in item.ProductImages.Where(p => !p.IsDeleted))
                                                     {
                                                         <div class="dot dot_image image-ch">
                                                             <div class="dot-inner">
@@ -109,7 +106,7 @@
                                                 </div>
                                             </div>
                                             <h3 class="product-title-info_titles">
-                                                <a href="#">
+                                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                                     @item.Name
                                                 </a>
                                             </h3>
@@ -148,7 +145,7 @@
                             <div class="offers-content">
                                 <h5></h5>
                                 <div class="offers-content-buttons">
-                                    <a href="#" class="btn btn-link">
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="14" class="btn btn-link">
                                         Shop Men's
                                     </a>
                                 </div>
@@ -170,7 +167,7 @@
                                     All Surf Watches
                                 </h5>
                                 <div class="offers-content-buttons">
-                                    <a href="#" class="btn btn-link ms-4">
+                                    <a asp-controller="Products" asp-action="Index" asp-route-id="15" class="btn btn-link ms-4">
                                         Shop Women's
                                     </a>
                                 </div>

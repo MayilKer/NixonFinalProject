@@ -1,0 +1,26 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Message Detail</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title"><span class="text-primary">Email:</span> @Model.Email</h5>
+                <h5 class="card-title"><span class="text-primary">Contact Name:</span>@Model.ContactName</h5>
+                <h5 class="card-title"><span class="text-primary">Phone Number:</span>@Model.Phone</h5>
+                <h5 class="card-title"><span class="text-primary">Message:</span>@Model.Message</h5>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <a class="btn btn-primary" asp-action="Index" asp-route-page="@ViewBag.PageIndex">Go To List</a>
+        </div>
+    </div>
+</div>
+

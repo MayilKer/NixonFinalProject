@@ -2,90 +2,88 @@
 @{ 
     double subTotal = 0;
 }
-    <div id="shop-cart" class="cart-container">
-        <form action="" class="cart-form">
-            <div class="cart-header">
-                <p class="cart-title">
-                    Shopping Cart
+    <form action="" class="cart-form">
+        <div class="cart-header">
+            <p class="cart-title">
+                Shopping Cart
+            </p>
+            <a id="close-cart" href="#" class="cart-close close-cart">
+                <svg width="20" height="21" viewbox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 1.36328L1 19.3633" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
+                    <path d="M19 19.3633L1 1.36328" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
+                </svg>
+            </a>
+        </div>
+        @if (Model.Count() > 0)
+        {
+            <div class="cart-body">
+                <p class="cart-item-count">
+                    @Model.Count() item
                 </p>
-                <a id="close-cart" href="#" class="cart-close close-cart">
-                    <svg width="20" height="21" viewbox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 1.36328L1 19.3633" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
-                        <path d="M19 19.3633L1 1.36328" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
-                    </svg>
-                </a>
+                @foreach (BasketVM basket in Model)
+                {
+                    <ul class="cart_list" style="overflow-y:initial">
+                        <li class="cart_list_item">
+                            <div class="cart_item_img">
+                                <img src="~/dist/images/products/@basket.Image" alt="">
+                            </div>
+                            <div class="cart_item_info">
+                                <a class="cart_item_title" asp-controller="ProductDetail" asp-action="Index" asp-route-id="@basket.ProductId">
+                                    <h6>
+                                        @basket.Name - @basket.Colour
+                                    </h6>
+                                </a>
+                                <div class="cart_item_information">
+                                    <ul class="cart_item_options">
+                                        <li>QTY: @basket.Count</li>
+                                        <li>Color: @basket.Colour</li>
+                                    </ul>
+                                    <p class="cart_item_price">
+                                        $@((basket.Price*basket.Count).ToString("F2"))
+                                    </p>
+                                </div>
+                                <a class="cart_item_remove delete-pro-l" asp-controller="ShoppingCart" asp-action="DeleteFromBasketLayout" asp-route-id="@basket.ProductId" asp-route-colorId="@basket.ColorId">
+                                    <svg width="11" height="11" viewbox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 1.18164L1 10.1816" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
+                                        <path d="M10 10.1816L1 1.18164" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    subTotal += (basket.Price * basket.Count);
+                }
+                <div class="cart-pre-footer">
+                    <div class="footer-row cart-footer-text">
+                        Taxes and shipping are calculated at Checkout
+                    </div>
+                    <div class="footer-row">
+                        <h6>
+                            Subtotal: $@subTotal.ToString("F2")
+                        </h6>
+                    </div>
+                </div>
             </div>
-            @if (Model.Count() > 0)
-            {
-                <div class="cart-body">
-                    <p class="cart-item-count">
-                        @Model.Count() item
-                    </p>
-                    @foreach (BasketVM basket in Model)
-                    {
-                        <ul class="cart_list" style="overflow-y:initial">
-                            <li class="cart_list_item">
-                                <div class="cart_item_img">
-                                    <img src="~/dist/images/products/@basket.Image" alt="">
-                                </div>
-                                <div class="cart_item_info">
-                                    <a class="cart_item_title" href="">
-                                        <h6>
-                                            @basket.Name - @basket.Colour
-                                        </h6>
-                                    </a>
-                                    <div class="cart_item_information">
-                                        <ul class="cart_item_options">
-                                            <li>QTY: @basket.Count</li>
-                                            <li>Color: @basket.Colour</li>
-                                        </ul>
-                                        <p class="cart_item_price">
-                                            $@((basket.Price*basket.Count).ToString("F2"))
-                                        </p>
-                                    </div>
-                                    <a href="" class="cart_item_remove">
-                                        <svg width="11" height="11" viewbox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10 1.18164L1 10.1816" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
-                                            <path d="M10 10.1816L1 1.18164" stroke="black" stroke-width="2" stroke-miterlimit="10"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                        subTotal += (basket.Price*basket.Count);
-                    }
-                    <div class="cart-pre-footer">
-                        <div class="footer-row cart-footer-text">
-                            Taxes and shipping are calculated at Checkout
-                        </div>
-                        <div class="footer-row">
-                            <h6>
-                                Subtotal: $@subTotal.ToString("F2")
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-footer">
-                    <div class="cart-footer-top">
+            <div class="cart-footer">
+                <div class="cart-footer-top">
 
+                </div>
+                <div class="cart-footer-bottom">
+                    <div class="cart-footer-row">
+                        <a class="btn btn-block btn-first" asp-controller="ShoppingCart" asp-action="Index">
+                            View Cart
+                        </a>
                     </div>
-                    <div class="cart-footer-bottom">
-                        <div class="cart-footer-row">
-                            <a class="btn btn-block btn-first" asp-controller="ShoppingCart" asp-action="Index">
-                                View Cart
-                            </a>
-                        </div>
-                        <div class="cart-footer-row">
-                            <a class="btn btn-block btn-second close-cart" href="#">
-                                Continue Shopping
-                            </a>
-                        </div>
+                    <div class="cart-footer-row">
+                        <a class="btn btn-block btn-second close-cart" href="#">
+                            Continue Shopping
+                        </a>
                     </div>
                 </div>
-            }
-            else
-            {
-        <h1 style="position:absolute;top:50%;left:30%;font-size:15px;">Your cart is currently empty.</h1>
-            }
-        </form>
-    </div>
+            </div>
+        }
+        else
+        {
+            <h1 style="position:absolute;top:50%;left:30%;font-size:15px;">Your cart is currently empty.</h1>
+        }
+    </form>

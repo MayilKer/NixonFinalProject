@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NixonE.DAL;
 using NixonE.Models;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace NixonE.Areas.Admin.Controllers
 {
     [Area("admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class BannerController : Controller
     {
         private readonly NixonDbContext _context;

@@ -8,7 +8,7 @@
         <div class="hero-inner" style="z-index:1">
             <div class="hero-body">
                 <h2 class="hero-heading">
-                   @Model.Category.Name
+                   @Model.Category?.Name
                 </h2>
             </div>
         </div>
@@ -27,11 +27,11 @@
                     </span>
                 </div>
                 <div class="breadcrumbs_crumb">
-                    @Model.Category.Name
+                    @Model.Category?.Name
                 </div>
             </nav>
             <h1 class="pt-4 pb-2 pb-md-0 mb-0">
-                @Model.Category.Name
+                @Model.Category?.Name
             </h1>
         </div>
         <div id="collection" class="mt-4">
@@ -241,19 +241,19 @@
                                 <div id="searchColor" class="collapse">
                                     <div class="card-body">
                                         <ul class="search-result-items-color search-result-items">
-                                            @foreach (ProductColors colour in Model.ProductColors)
+                                            @foreach (Colour colour in Model.Colours)
                                             {
                                                 <li class="search-results__item-color">
                                                     <a href="javascript:void(0);" class="check-box-btn search-color">
                                                         <span class="search-result-color-content">
-                                                            <span class="search-result-color-content_cercle" style="background-color: @colour.Colour.Name; background-image: url();">
+                                                            <span class="search-result-color-content_cercle" style="background-color: @colour.Name; background-image: url();">
                                                                 <i class="fa-solid fa-check check-color-s"></i>
                                                             </span>
                                                             <span class="search-result-color-content_name">
-                                                                @colour.Colour.Name
+                                                                @colour.Name
                                                             </span>
                                                         </span>
-                                                        <input class="d-none col-inp" name="colorid" value="@colour.ColourId" type="checkbox" />
+                                                        <input class="d-none col-inp" name="colorid" value="@colour.Id" type="checkbox" />
                                                     </a>
                                                 </li>
 

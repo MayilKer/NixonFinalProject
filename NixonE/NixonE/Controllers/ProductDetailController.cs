@@ -57,7 +57,7 @@ namespace NixonE.Controllers
 
             List<BasketVM> basketVMs = null;
 
-            if (cookieBasket != null)
+            if (!string.IsNullOrWhiteSpace(cookieBasket))
             {
                 basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(cookieBasket);
 
@@ -107,7 +107,7 @@ namespace NixonE.Controllers
 
             List<BasketVM> basketVMs = null;
 
-            if (cookieBasket != null)
+            if (!string.IsNullOrWhiteSpace(cookieBasket))
             {
                 basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(cookieBasket);
 
@@ -127,6 +127,38 @@ namespace NixonE.Controllers
                 basketVM.Colour = dbcolour.Name;
             }
             return PartialView("_ProductCountPartial", basketVMs);
+        }
+        public async Task<IActionResult> GetBasketCountMob()
+        {
+            string cookieBasket = HttpContext.Request.Cookies["basket"];
+
+            List<BasketVM> basketVMs = null;
+
+            if (!string.IsNullOrWhiteSpace(cookieBasket))
+            {
+                basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(cookieBasket);
+
+            }
+            else
+            {
+                basketVMs = new List<BasketVM>();
+            }
+
+            foreach (BasketVM basketVM in basketVMs)
+            {
+                Product dbproduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
+                Colour dbcolour = await _context.Colors.FirstOrDefaultAsync(c => c.Id == basketVM.ColorId);
+                basketVM.Image = dbproduct.MainImage;
+                basketVM.Price = dbproduct.Price;
+                basketVM.Name = dbproduct.Name;
+                basketVM.Colour = dbcolour.Name;
+            }
+            return PartialView("_ProductCountMobilePartial", basketVMs);
+        }
+        public async Task<IActionResult> SearchPartial(string query)
+        {
+            List<Product> products = await _context.Products.Where(p => p.Name.ToLower().Contains(query.ToLower())).ToListAsync();
+            return PartialView("_ProductSearchPartial", products);
         }
     }
 }

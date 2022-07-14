@@ -44,5 +44,6 @@ namespace NixonE.Models
         [NotMapped]
         public List<string> Value { get; set; } = new List<string>();
         public List<ProductFeatures> ProductFeatures { get; set; }
+        public IEnumerable<Basket> Baskets { get; set; }
     }
 }

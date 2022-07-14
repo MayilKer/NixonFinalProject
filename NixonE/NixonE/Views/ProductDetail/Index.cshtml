@@ -17,7 +17,7 @@
                                 </span>
                             </div>
                             <div class="breadcrumbs__crumb">
-                                <a href="./products.html" title="Man's Watches">
+                                <a asp-controller="Products" asp-action="Index" asp-route-id="@Model.CategoryId" asp-route-mainId="@Model.Category?.ParentId" title="Man's Watches">
                                     @Model.Category?.Parent.Name
                                 </a>
                                 <span>
@@ -39,15 +39,15 @@
                                 <div class="product-gallery-main row justify-content-center">
                                     <div class="product-gallery-slide col-lg-8">
                                         <div class="slider-for">
-                                            @foreach (ProductImages item in Model.ProductImages)
+                                            @foreach (ProductImages item in Model.ProductImages.Where(p=>!p.IsDeleted))
                                             {
                                                 <div class="product-1">
-                                                    <img src="~/dist/images/products/@item.Image" alt="">
+                                                    <img style="width:100%" src="~/dist/images/products/@item.Image" alt="">
                                                 </div>
                                             }
                                         </div>
                                         <div class="slider-nav">
-                                            @foreach (ProductImages items in Model.ProductImages)
+                                            @foreach (ProductImages items in Model.ProductImages.Where(p => !p.IsDeleted))
                                             {
                                                 <div class="product-2" style="width: 56px;">
                                                     <img src="~/dist/images/products/@items.Image" alt="">

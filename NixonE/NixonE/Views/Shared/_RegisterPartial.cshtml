@@ -1,0 +1,46 @@
+﻿@model RegisterVM
+<form method="post" id="create_account">
+    <div class="text-danger" asp-validation-summary="ModelOnly">
+
+    </div>
+    <div class="form-group">
+        <label asp-for="UserName" class="label-inline">
+            User Name
+        </label>
+        <input asp-for="UserName" type="text" id="UserName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName" class="label-inline">
+            First Name
+        </label>
+        <input asp-for="FirstName" type="text" id="FirstName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName" class="label-inline">
+            Last Name
+        </label>
+        <input asp-for="LastName" type="text" id="LastName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="label-inline">
+            Email
+        </label>
+        <input asp-for="Email" type="email" id="create_email" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="label-inline">
+            Password
+        </label>
+        <input asp-for="Password" type="password" class="form-control" id="create_password">
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword" class="label-inline">
+            Confirm Password
+        </label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirm_password">
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-dark signIn-btn">
+    </div>
+</form>
+

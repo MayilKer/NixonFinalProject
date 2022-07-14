@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NixonE.DAL;
 using NixonE.Extension;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace NixonE.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class TagController : Controller
     {
         private readonly NixonDbContext _context;

@@ -1,4 +1,13 @@
 ﻿@model List<BasketVM>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUser> userManager
+@{
+    AppUser appUser = null;
+    if (User.Identity.IsAuthenticated)
+    {
+        appUser = userManager.Users.FirstOrDefault(a => a.UserName == User.Identity.Name && !a.IsAdmin);
+    }
+}
 @{
     double subtotal = 0;
     int proCount = 0;
@@ -32,16 +41,34 @@
                     </p>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-md-offset-2 col-xl-2 offset-xl-3">
-                    <a href="#" title="checkout">
-                        <button class="btn">
-                            <span class="mr-1">
-                                <svg width="11" height="14" viewbox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.15722 4.22782V3.7613C9.15722 1.69113 7.51289 0 5.5 0C3.48711 0 1.84278 1.69113 1.84278 3.7613V4.22782H0V13.0625H11V4.22782H9.15722ZM2.66495 3.7613C2.66495 2.15764 3.94072 0.874721 5.47165 0.874721C7.00258 0.874721 8.27835 2.1868 8.27835 3.7613V4.22782H2.66495V3.7613Z" fill="white"></path>
-                                </svg>
-                            </span>
-                            Check Out
-                        </button>
-                    </a>
+                    @if (appUser != null)
+                    {
+
+
+                        <a asp-controller="MyAccount" asp-action="CheckOut" title="checkout">
+                            <button class="btn mb-2">
+                                <span class="me-1">
+                                    <svg width="11" height="14" viewbox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.15722 4.22782V3.7613C9.15722 1.69113 7.51289 0 5.5 0C3.48711 0 1.84278 1.69113 1.84278 3.7613V4.22782H0V13.0625H11V4.22782H9.15722ZM2.66495 3.7613C2.66495 2.15764 3.94072 0.874721 5.47165 0.874721C7.00258 0.874721 8.27835 2.1868 8.27835 3.7613V4.22782H2.66495V3.7613Z" fill="white"></path>
+                                    </svg>
+                                </span>
+                                Check Out
+                            </button>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" title="checkout">
+                            <button class="btn mb-2">
+                                <span class="me-1">
+                                    <svg width="11" height="14" viewbox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.15722 4.22782V3.7613C9.15722 1.69113 7.51289 0 5.5 0C3.48711 0 1.84278 1.69113 1.84278 3.7613V4.22782H0V13.0625H11V4.22782H9.15722ZM2.66495 3.7613C2.66495 2.15764 3.94072 0.874721 5.47165 0.874721C7.00258 0.874721 8.27835 2.1868 8.27835 3.7613V4.22782H2.66495V3.7613Z" fill="white"></path>
+                                    </svg>
+                                </span>
+                                Check Out
+                            </button>
+                        </a>
+                    }
                 </div>
             </div>
         </div>
@@ -56,7 +83,7 @@
                         <div class="cart-list_row">
                             <div class="cart-list-col pb-4">
                                 <div class="remove_pro d-none d-lg-block">
-                                    <a href="#">
+                                    <a class="delete-pro" asp-controller="ShoppingCart" asp-action="DeleteFromBasket" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId">
                                         <svg width="11" height="11" viewbox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10 1.18164L1 10.1816" stroke="#696C6F" stroke-width="2" stroke-miterlimit="10"></path>
                                             <path d="M10 10.1816L1 1.18164" stroke="#696C6F" stroke-width="2" stroke-miterlimit="10"></path>
@@ -65,12 +92,12 @@
                                 </div>
                                 <div class="d-flex flex-column">
                                     <div class="d-flex">
-                                        <a href="#" class="cat-list_item-image">
+                                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.ProductId" class="cat-list_item-image">
                                             <img src="~/dist/images/products/@item.Image" alt="">
                                         </a>
                                         <div class="cart-list_item-detail">
                                             <h5 class="product-title mb-1">
-                                                <a href="#">
+                                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.ProductId">
                                                     @item.Name - @item.Colour
                                                 </a>
                                             </h5>
@@ -105,13 +132,10 @@
                                             </div>
                                             <p class="mt-3 mb-1 p2">
                                                 <span>
-                                                    $@((item.Price*item.Count).ToString("F2"))
+                                                    $@item.Price.ToString("F2")
                                                 </span>
                                             </p>
-                                            <a href="#" class="btn-links me-2">
-                                                Edit
-                                            </a>
-                                            <a href="#" class="btn-links">
+                                            <a class="btn-links delete-pro" asp-controller="ShoppingCart" asp-action="DeleteFromBasket" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId">
                                                 Remove
                                             </a>
                                         </div>
@@ -148,16 +172,52 @@
                                     Military/First Responder and other discounts added at checkout.
                                 </p>
                             </div>
-                            <a href="#" title="checkout">
-                                <button class="btn mb-2">
-                                    <span class="me-1">
-                                        <svg width="11" height="14" viewbox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.15722 4.22782V3.7613C9.15722 1.69113 7.51289 0 5.5 0C3.48711 0 1.84278 1.69113 1.84278 3.7613V4.22782H0V13.0625H11V4.22782H9.15722ZM2.66495 3.7613C2.66495 2.15764 3.94072 0.874721 5.47165 0.874721C7.00258 0.874721 8.27835 2.1868 8.27835 3.7613V4.22782H2.66495V3.7613Z" fill="white"></path>
-                                        </svg>
-                                    </span>
-                                    Check Out
-                                </button>
-                            </a>
+                            @if (appUser != null)
+                            {
+
+
+                                <a asp-controller="MyAccount" asp-action="CheckOut" title="checkout">
+                                    <button class="btn mb-2">
+                                        <span class="me-1">
+                                            <svg width="11" height="14" viewbox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.15722 4.22782V3.7613C9.15722 1.69113 7.51289 0 5.5 0C3.48711 0 1.84278 1.69113 1.84278 3.7613V4.22782H0V13.0625H11V4.22782H9.15722ZM2.66495 3.7613C2.66495 2.15764 3.94072 0.874721 5.47165 0.874721C7.00258 0.874721 8.27835 2.1868 8.27835 3.7613V4.22782H2.66495V3.7613Z" fill="white"></path>
+                                            </svg>
+                                        </span>
+                                        Check Out
+                                    </button>
+                                </a>
+                            }
+                            else
+                            {
+                                if (Model.Count() > 0)
+                                {
+                                    <a asp-controller="Account" asp-action="Login" class="disabled" title="checkout">
+                                        <button class="btn mb-2 disabled">
+                                            <span class="me-1">
+                                                <svg width="11" height="14" viewbox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9.15722 4.22782V3.7613C9.15722 1.69113 7.51289 0 5.5 0C3.48711 0 1.84278 1.69113 1.84278 3.7613V4.22782H0V13.0625H11V4.22782H9.15722ZM2.66495 3.7613C2.66495 2.15764 3.94072 0.874721 5.47165 0.874721C7.00258 0.874721 8.27835 2.1868 8.27835 3.7613V4.22782H2.66495V3.7613Z" fill="white"></path>
+                                                </svg>
+                                            </span>
+                                            Check Out
+                                        </button>
+                                    </a>
+                                }
+                else
+                {
+                        <a asp-controller="Account" asp-action="Login" title="checkout">
+                            <button class="btn mb-2">
+                                <span class="me-1">
+                                    <svg width="11" height="14" viewbox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.15722 4.22782V3.7613C9.15722 1.69113 7.51289 0 5.5 0C3.48711 0 1.84278 1.69113 1.84278 3.7613V4.22782H0V13.0625H11V4.22782H9.15722ZM2.66495 3.7613C2.66495 2.15764 3.94072 0.874721 5.47165 0.874721C7.00258 0.874721 8.27835 2.1868 8.27835 3.7613V4.22782H2.66495V3.7613Z" fill="white"></path>
+                                    </svg>
+                                </span>
+                                Check Out
+                            </button>
+                        </a>
+                }
+                                
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -185,37 +245,6 @@
                 </p>
             </div>
         </div>
-        <div class="content-grid justify-content-sm-center align-items-sm-center align-items-start flex-column flex-lg-row">
-            <div class="icon-grid__item col-lg-3 col-xxl-2 my-4 my-xl-0">
-                <div class="icon-grid__item-inner d-flex  flex-row flex-lg-column justify-content-sm-center align-items-lg-center mx-auto">
-                    <div class="icon-bg d-flex justify-content-center align-items-center" style="background-color: #f5f6f6; border: 1px solid #f5f6f6; width: 75px; height: 75px;">
-                        <img src="https://cdn.shopify.com/s/files/1/0541/0272/0705/files/Vector_3_150x.png?v=1636477622" alt="Clickable mail icon for sending Nixon customer service message.">
-                    </div>
-                    <div class="icon-grid__item-content d-flex flex-column align-items-lg-center  align-items-start">
-                        <h4></h4>
-                        <p>
-                            <a href="./contactus.html">
-                                Message Us
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="icon-grid__item col-lg-3 col-xxl-2 my-4 my-xl-0">
-                <div class="icon-grid__item-inner d-flex  flex-row flex-lg-column justify-content-sm-center align-items-lg-center mx-auto">
-                    <div class="icon-bg d-flex justify-content-center align-items-center" style="background-color: #f5f6f6; border: 1px solid #f5f6f6; width: 75px; height: 75px;">
-                        <img src="https://cdn.shopify.com/s/files/1/0541/0272/0705/files/Vector_2_150x.png?v=1636477635" alt="Clickable phone icon for calling customer service at Nixon.">
-                    </div>
-                    <div class="icon-grid__item-content d-flex flex-column align-items-lg-center  align-items-start">
-                        <h4></h4>
-                        <p>
-                            <a href="tel:8884559200" title="tel:8884559200">
-                                (888) 455-9200
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @(await Component.InvokeAsync("TwoWayConversation"))
     </div>
 </div>

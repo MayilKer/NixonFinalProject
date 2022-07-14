@@ -1,0 +1,113 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<main role="main" id="ContactUsPage">
+    <div class="layout-main_content">
+        <div class="banner-section">
+            <div class="hero">
+                <div class="hero-inner align-items-sm-center align-items-center">
+                    <div class="hero-body">
+                        <h1 class="hero-heading">
+                            Contact Us
+                        </h1>
+                    </div>
+                </div>
+                <picture class="hero-picture">
+                    <source media="(min-width: 768px)" srcset="https://cdn.accentuate.io/83617513665/1627911262332/Hero_Banner_Desk.jpeg?v=1632244913599">
+                    <img src="https://cdn.accentuate.io/83617513665/1632244922649/HeroMobile@2x.jpeg?v=0" alt="About Us Picture">
+                </picture>
+            </div>
+        </div>
+        <div class="container">
+            <div class="custom-service_header">
+                <nav class="breadcrumbs" role="navigation" aria-label="breadcrumb">
+                    <div class="breadcrumbs__crumb">
+                        <a href="./home.html" title="Home">Home</a>
+                        <span>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </span>
+                    </div>
+                    <div class="breadcrumbs_crumb">
+                        Contact Us
+                    </div>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-5">
+                    <div class="d-none d-lg-block">
+                        <div class="customer-service__nav-item">
+                            <a href="./contactus.html">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <p>
+                        We're happy to help! Our Customer Service team is available between 8:00am - 5:00pm PST Monday - Thursday and 9:00am - 5:00pm PST Friday by telephone, email, live chat, and social.
+                    </p>
+                    <div class="contact-form">
+                        <form method="post">
+                            <div class="form-group">
+                                <label asp-for="ContactName" class="label-inline required">
+                                    Contact Name
+                                </label>
+                                <input asp-for="ContactName" id="name" class="form-control">
+                                <span class="text-danger" asp-validation-for="ContactName"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email" class="label-inline required">
+                                    Email
+                                </label>
+                                <input asp-for="Email" id="email" class="form-control">
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Phone" class="label-inline required">
+                                    Phone
+                                </label>
+                                <input asp-for="Phone" id="phone" class="form-control">
+                                <span class="text-danger" asp-validation-for="Phone"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Message" class="label-inline required">
+                                    Text
+                                </label>
+                                <textarea asp-for="Message" id="description" class="form-control" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input id="submit-button" type="submit" class="btn" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="two-way_section">
+            <div class="container">
+                <div class="content-header">
+                    <h3 class="content-header_title">
+                        A Two-Way Conversation
+                    </h3>
+                    <div class="content-header__subtitle">
+                        <p>
+                            Need Help? Our CS team is live
+                            <strong>
+                                M-Th 8:00am - 5:00pm PST and F 9:00am - 5:00pm PST
+                            </strong>
+                            <a href="https://www.instagram.com/nixon/" title="https://www.instagram.com/nixon/" target="_blank">Instagram</a>
+                            ,
+                            <a href="https://www.facebook.com/nixon" title="https://www.facebook.com/nixon" target="_blank">Facebook</a>
+                            ,
+                            <a href="https://twitter.com/nixon_now" title="https://twitter.com/nixon_now" target="_blank">Twitter.</a>
+                        </p>
+                    </div>
+                </div>
+                @(await Component.InvokeAsync("TwoWayConversation"))
+            </div>
+        </div>
+    </div>
+</main>
+

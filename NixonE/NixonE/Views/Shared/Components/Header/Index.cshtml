@@ -16,11 +16,11 @@
                     <div class="dropdown-menu-main">
                         <div class="dropdown-menu-left">
                             <ul>
-                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                                @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Men's Watches")))
                                 {
                                     <li>
-                                        <a asp-controller="Products" asp-action="Index" asp-route-tagId="@item.Tag.Id" asp-route-id="@item.CategoryId">
-                                            @item.Tag.Name
+                                        <a asp-controller="Products" asp-action="Index" asp-route-tagId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()">
+                                            @item.Name
                                         </a>
                                     </li>
                                 }
@@ -36,11 +36,11 @@
                                 <li>
                                     <a href="">Styles</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                                        @foreach (Style item in Model.styles.Where(p => p.Products.Any(p=>p.Category.Name == "Men's Watches")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
-                                                    @item.Style.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -49,11 +49,11 @@
                                 <li>
                                     <a href="">Use</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
+                                        @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Men's Watches")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
-                                                    @item.Use.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -65,7 +65,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Men's Watches"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Id">
+                                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                                     @item.Name
                                                 </a>
                                             </li>
@@ -97,11 +97,11 @@
                     <div class="dropdown-menu-main">
                         <div class="dropdown-menu-left">
                             <ul>
-                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                                @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p=>p.Category.Name == "Women's Watches")))
                                 {
                                     <li>
-                                        <a asp-controller="Products" asp-action="Index" asp-route-tagId="@item.Tag.Id" asp-route-id="@item.CategoryId">
-                                            @item.Tag.Name
+                                        <a asp-controller="Products" asp-action="Index" asp-route-tagId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()">
+                                            @item.Name
                                         </a>
                                     </li>
                                 }
@@ -117,11 +117,11 @@
                                 <li>
                                     <a href="">Styles</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                                        @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Women's Watches")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
-                                                    @item.Style.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -130,11 +130,11 @@
                                 <li>
                                     <a href="">Use</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
+                                        @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Women's Watches")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
-                                                    @item.Use.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -146,7 +146,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Women's Watches"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Id">
+                                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                                     @item.Name
                                                 </a>
                                             </li>
@@ -178,11 +178,11 @@
                     <div class="dropdown-menu-main">
                         <div class="dropdown-menu-left">
                             <ul>
-                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                                @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Bag")))
                                 {
                                     <li>
-                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
-                                            @item.Tag.Name
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-tagId="@item.Id">
+                                            @item.Name
                                         </a>
                                     </li>
                                 }
@@ -198,11 +198,11 @@
                                 <li>
                                     <a href="">Styles</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                                        @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Bag")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
-                                                    @item.Style.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -211,11 +211,11 @@
                                 <li>
                                     <a href="">Use</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
+                                        @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Bag")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
-                                                    @item.Use.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -227,7 +227,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Bag"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Id">
+                                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                                     @item.Name
                                                 </a>
                                             </li>
@@ -259,11 +259,11 @@
                     <div class="dropdown-menu-main">
                         <div class="dropdown-menu-left">
                             <ul>
-                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
+                                @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Backpacks")))
                                 {
                                     <li>
-                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
-                                            @item.Tag.Name
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-tagId="@item.Id">
+                                            @item.Name
                                         </a>
                                     </li>
                                 }
@@ -279,11 +279,11 @@
                                 <li>
                                     <a href="">Styles</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
+                                        @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Backpacks")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
-                                                    @item.Style.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -292,11 +292,11 @@
                                 <li>
                                     <a href="">Use</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
+                                        @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Backpacks")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
-                                                    @item.Use.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -308,7 +308,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Backpacks"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Id">
+                                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                                     @item.Name
                                                 </a>
                                             </li>
@@ -340,11 +340,11 @@
                     <div class="dropdown-menu-main">
                         <div class="dropdown-menu-left">
                             <ul>
-                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                                @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Clothing")))
                                 {
                                     <li>
-                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
-                                            @item.Tag.Name
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-tagId="@item.Id">
+                                            @item.Name
                                         </a>
                                     </li>
                                 }
@@ -360,11 +360,11 @@
                                 <li>
                                     <a href="">Styles</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                                        @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Clothing")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
-                                                    @item.Style.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -373,11 +373,11 @@
                                 <li>
                                     <a href="">Use</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
+                                        @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Clothing")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
-                                                    @item.Use.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -389,7 +389,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Clothing"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Id">
+                                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                                     @item.Name
                                                 </a>
                                             </li>
@@ -421,11 +421,11 @@
                     <div class="dropdown-menu-main">
                         <div class="dropdown-menu-left">
                             <ul>
-                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                                @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Accessories")))
                                 {
                                     <li>
-                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
-                                            @item.Tag.Name
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-tagId="@item.Id">
+                                            @item.Name
                                         </a>
                                     </li>
                                 }
@@ -441,11 +441,11 @@
                                 <li>
                                     <a href="">Styles</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                                        @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Accessories")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
-                                                    @item.Style.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -454,11 +454,11 @@
                                 <li>
                                     <a href="">Use</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
+                                        @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Accessories")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
-                                                    @item.Use.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -470,7 +470,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Accessories"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Id">
+                                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                                     @item.Name
                                                 </a>
                                             </li>
@@ -502,11 +502,11 @@
                     <div class="dropdown-menu-main">
                         <div class="dropdown-menu-left">
                             <ul>
-                                @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                                @foreach (Tag item in Model.tags.Where(p => p.Products.Any(p => p.Category.Name == "Headwears")))
                                 {
                                     <li>
-                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-tagId="@item.Tag.Id">
-                                            @item.Tag.Name
+                                        <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-tagId="@item.Id">
+                                            @item.Name
                                         </a>
                                     </li>
                                 }
@@ -522,11 +522,11 @@
                                 <li>
                                     <a href="">Styles</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                                        @foreach (Style item in Model.styles.Where(p => p.Products.Any(p => p.Category.Name == "Headwears")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Style.Id" asp-route-id="@item.CategoryId">
-                                                    @item.Style.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-styleId="@item.Id" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -535,11 +535,11 @@
                                 <li>
                                     <a href="">Use</a>
                                     <ul>
-                                        @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
+                                        @foreach (Use item in Model.uses.Where(p => p.Products.Any(p => p.Category.Name == "Headwears")))
                                         {
                                             <li>
-                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.CategoryId" asp-route-useId="@item.Use.Id">
-                                                    @item.Use.Name
+                                                <a asp-controller="Products" asp-action="Index" asp-route-id="@item.Products.Select(p=>p.CategoryId).FirstOrDefault()" asp-route-useId="@item.Id">
+                                                    @item.Name
                                                 </a>
                                             </li>
                                         }
@@ -551,7 +551,7 @@
                                         @foreach (Product item in Model.products.Where(p => p.Category.Name == "Headwears"))
                                         {
                                             <li>
-                                                <a asp-route-id="@item.Id">
+                                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                                     @item.Name
                                                 </a>
                                             </li>

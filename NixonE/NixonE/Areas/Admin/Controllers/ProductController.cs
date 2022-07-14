@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 namespace NixonE.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class ProductController : Controller
     {
         private readonly NixonDbContext _context;
